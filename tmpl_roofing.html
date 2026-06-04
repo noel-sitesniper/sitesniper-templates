@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shield Roofing MS — Jackson, MS</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{background:#1a0505;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #c0392b}
+.nav-logo{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:1px}
+.nav-logo span{color:#e74c3c}
+.nav-phone{background:#e74c3c;color:#fff;padding:10px 22px;border-radius:6px;font-weight:800;font-size:14px;text-decoration:none}
+
+/* HERO — full width with overlay feel */
+.hero{background:linear-gradient(160deg,#1a0505 0%,#2d0a0a 40%,#3d1515 80%,#1a0505 100%);min-height:90vh;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;padding:80px 48px;gap:48px;position:relative;overflow:hidden}
+.hero::after{content:'🏠';position:absolute;right:5%;bottom:-40px;font-size:320px;opacity:.04;line-height:1}
+.hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-kicker-line{width:40px;height:3px;background:#e74c3c}
+.hero-kicker span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#e74c3c}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(48px,6vw,80px);font-weight:700;color:#fff;line-height:1;margin-bottom:22px;text-transform:uppercase}
+.hero h1 em{color:#e74c3c;font-style:normal;display:block}
+.hero-sub{color:#b0807a;font-size:16px;line-height:1.8;margin-bottom:36px;max-width:500px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-red{background:#e74c3c;color:#fff;padding:16px 32px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none}
+.btn-outline{border:2px solid rgba(255,255,255,.2);color:#fff;padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none}
+.hero-proof{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.proof-item{background:rgba(255,255,255,.04);border:1px solid rgba(231,76,60,.2);border-radius:12px;padding:18px 20px}
+.proof-item .val{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:#e74c3c;line-height:1}
+.proof-item .desc{font-size:12px;color:#b0807a;margin-top:4px}
+
+/* RED STRIP */
+.red-strip{background:#e74c3c;padding:20px 48px;display:flex;justify-content:center;gap:72px}
+.rs-stat .n{font-size:26px;font-weight:900;color:#fff}
+.rs-stat .l{font-size:11px;font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px}
+
+/* SERVICES */
+.services{padding:80px 48px;background:#fafafa}
+.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#e74c3c;margin-bottom:10px}
+.section-h{font-family:'Oswald',sans-serif;font-size:46px;font-weight:700;color:#1a0505;text-transform:uppercase;margin-bottom:8px}
+.section-p{color:#888;font-size:15px;margin-bottom:48px}
+.svc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px}
+.svc-row{background:#fff;border-radius:14px;padding:28px;border:2px solid #f0e8e8;display:flex;gap:18px;align-items:flex-start;transition:all .25s}
+.svc-row:hover{border-color:#e74c3c;box-shadow:0 8px 30px rgba(231,76,60,.1)}
+.svc-icon{width:48px;height:48px;background:#fef2f2;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.svc-row h3{font-size:15px;font-weight:800;color:#1a0505;margin-bottom:6px}
+.svc-row p{font-size:13px;color:#888;line-height:1.6}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,#1a0505,#2d0a0a);padding:80px 48px;text-align:center}
+.cta h2{font-family:'Oswald',sans-serif;font-size:52px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.cta h2 span{color:#e74c3c}
+.cta p{color:#b0807a;font-size:16px;margin-bottom:36px}
+.cta a{background:#e74c3c;color:#fff;padding:18px 44px;border-radius:10px;text-decoration:none;font-weight:900;font-size:17px;display:inline-block}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🏠 SHIELD <span>ROOFING</span> MS</div>
+  <a href="#" class="nav-phone">📞 Free Inspection</a>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-kicker"><div class="hero-kicker-line"></div><span>Jackson's #1 Roofing Company</span></div>
+    <h1>Protect Your<em>Home &amp; Family</em></h1>
+    <p class="hero-sub">Storm damage, full replacements, or minor repairs — Shield Roofing handles it all with certified crews, premium materials, and a lifetime workmanship warranty.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-red">🏠 Free Roof Inspection</a>
+      <a href="#" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><div class="val">500+</div><div class="desc">Roofs Replaced</div></div>
+      <div class="proof-item"><div class="val">4.9★</div><div class="desc">Google Rating</div></div>
+      <div class="proof-item"><div class="val">Lifetime</div><div class="desc">Workmanship Warranty</div></div>
+      <div class="proof-item"><div class="val">24hr</div><div class="desc">Emergency Tarping</div></div>
+    </div>
+  </div>
+  <div style="background:rgba(231,76,60,.06);border:1px solid rgba(231,76,60,.15);border-radius:20px;padding:40px;text-align:center">
+    <div style="font-size:80px;margin-bottom:20px">🏠</div>
+    <h3 style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;font-weight:700;margin-bottom:10px;text-transform:uppercase">Insurance Claims Specialists</h3>
+    <p style="color:#b0807a;font-size:14px;line-height:1.7">Storm damage? We work directly with your insurance company to maximize your claim — at zero out-of-pocket cost to you.</p>
+  </div>
+</div>
+
+<div class="red-strip">
+  <div class="rs-stat"><div class="n">500+</div><div class="l">Roofs Done</div></div>
+  <div class="rs-stat"><div class="n">18+</div><div class="l">Years Exp</div></div>
+  <div class="rs-stat"><div class="n">4.9★</div><div class="l">Google Rating</div></div>
+  <div class="rs-stat"><div class="n">Lifetime</div><div class="l">Warranty</div></div>
+</div>
+
+<div class="services">
+  <div class="section-label">Our Services</div>
+  <div class="section-h">What We Cover</div>
+  <p class="section-p">From shingles to gutters — we protect every inch of your roof</p>
+  <div class="svc-list">
+    <div class="svc-row"><div class="svc-icon">🏠</div><div><h3>Full Roof Replacement</h3><p>Complete tear-off and replacement using GAF or Owens Corning shingles with manufacturer warranty.</p></div></div>
+    <div class="svc-row"><div class="svc-icon">🔧</div><div><h3>Roof Repairs</h3><p>Missing shingles, leaks, flashing failures — repaired fast before small problems become big ones.</p></div></div>
+    <div class="svc-row"><div class="svc-icon">⛈️</div><div><h3>Storm Damage Claims</h3><p>We handle the entire insurance process — inspection, documentation, and adjuster meetings.</p></div></div>
+    <div class="svc-row"><div class="svc-icon">🌿</div><div><h3>Gutter Installation</h3><p>Seamless aluminum gutters with leaf guards — protect your foundation year-round.</p></div></div>
+    <div class="svc-row"><div class="svc-icon">🏢</div><div><h3>Commercial Roofing</h3><p>Flat roofs, TPO, EPDM &amp; metal roofing for commercial and industrial buildings.</p></div></div>
+    <div class="svc-row"><div class="svc-icon">🔍</div><div><h3>Free Inspections</h3><p>No pressure, no cost — we assess your roof and give you an honest report with photos.</p></div></div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Get Your Free <span>Roof Inspection</span></h2>
+  <p>Serving Jackson, Flowood, Madison &amp; surrounding MS areas. Most inspections completed same day.</p>
+  <a href="#">📞 Call (601) 555-0303</a>
+</div>
+
+</body>
+</html>
