@@ -9,134 +9,137 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-/* NAV */
-nav{background:#1c1c2e;padding:0 48px;height:72px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:#fff}
+nav{background:#1c1c2e;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#fff}
 .nav-logo span{color:#f97316}
-.nav-links a{color:#aaa;font-size:14px;font-weight:500;text-decoration:none;margin-left:28px}
-.nav-cta{background:#f97316;color:#fff;padding:10px 24px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none;margin-left:20px}
+.nav-cta{background:#f97316;color:#fff;padding:9px 16px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
 
-/* HERO — editorial magazine layout */
-.hero{background:#1c1c2e;min-height:90vh;display:grid;grid-template-columns:1.1fr .9fr;position:relative;overflow:hidden}
-.hero-left{padding:100px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
-.hero-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#f97316;margin-bottom:20px}
-.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(44px,5.5vw,72px);color:#fff;line-height:1.1;margin-bottom:24px}
+.hero{background:#1c1c2e;padding:52px 20px 48px;text-align:center}
+.hero-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:16px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:44px;color:#fff;line-height:1.1;margin-bottom:18px}
 .hero h1 span{color:#f97316}
-.hero-sub{font-size:17px;color:#8888aa;line-height:1.8;margin-bottom:40px;max-width:500px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
-.btn-orange{background:#f97316;color:#fff;padding:16px 32px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none}
-.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none}
-.hero-stats{display:flex;gap:40px}
-.hs-item{border-left:3px solid #f97316;padding-left:16px}
-.hs-item .val{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;line-height:1}
-.hs-item .lbl{font-size:12px;color:#6666aa;margin-top:4px;font-weight:600}
-.hero-right{background:linear-gradient(180deg,#232340,#2a2a50);display:flex;flex-direction:column;justify-content:center;padding:60px 48px;gap:20px;border-left:1px solid rgba(249,115,22,.15)}
-.project-card{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:14px;padding:24px 28px;transition:all .25s}
-.project-card:hover{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.3)}
-.project-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:8px}
-.project-card h4{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:6px}
-.project-card p{font-size:13px;color:#7777aa;line-height:1.6}
-.project-tag{display:inline-block;background:rgba(249,115,22,.15);color:#f97316;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:10px}
+.hero-sub{font-size:15px;color:#8888aa;line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto 36px}
+.btn-orange{background:#f97316;color:#fff;padding:15px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none;display:block;text-align:center}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;padding:14px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;display:block;text-align:center}
+.hero-stats{display:flex;justify-content:center;gap:32px;margin-bottom:36px}
+.hs-item{border-left:3px solid #f97316;padding-left:14px;text-align:left}
+.hs-item .val{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;line-height:1}
+.hs-item .lbl{font-size:11px;color:#6666aa;margin-top:4px;font-weight:600}
+.project-cards{display:flex;flex-direction:column;gap:14px;max-width:440px;margin:0 auto}
+.project-card{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:14px;padding:20px 22px;text-align:left}
+.project-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:6px}
+.project-card h4{font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:5px}
+.project-card p{font-size:12px;color:#7777aa;line-height:1.6}
+.project-tag{display:inline-block;background:rgba(249,115,22,.15);color:#f97316;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:8px}
 
-/* ORANGE BAR */
-.orange-bar{background:#f97316;padding:20px 48px;display:flex;justify-content:center;gap:72px}
-.ob-stat .n{font-size:26px;font-weight:900;color:#fff}
-.ob-stat .l{font-size:11px;font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px}
+.orange-bar{background:#f97316;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ob-stat{text-align:center}
+.ob-stat .n{font-size:22px;font-weight:900;color:#fff}
+.ob-stat .l{font-size:10px;font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px}
 
-/* SERVICES */
-.services{padding:80px 48px;background:#f8f7ff}
-.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:#f97316;margin-bottom:10px}
-.section-h{font-family:'DM Serif Display',serif;font-size:46px;color:#1c1c2e;margin-bottom:8px}
-.section-p{color:#888;font-size:15px;margin-bottom:48px}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px}
-.svc-card{background:#fff;border-radius:16px;padding:32px;border:2px solid #ede9fe;transition:all .25s}
-.svc-card:hover{border-color:#f97316;transform:translateY(-4px);box-shadow:0 16px 40px rgba(249,115,22,.1)}
-.svc-ico{font-size:34px;margin-bottom:16px}
-.svc-card h3{font-family:'DM Serif Display',serif;font-size:20px;color:#1c1c2e;margin-bottom:8px}
-.svc-card p{font-size:13px;color:#888;line-height:1.65}
+.services{padding:52px 20px;background:#f8f7ff}
+.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:8px}
+.section-h{font-family:'DM Serif Display',serif;font-size:36px;color:#1c1c2e;margin-bottom:6px}
+.section-p{color:#888;font-size:14px;margin-bottom:32px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.svc-card{background:#fff;border-radius:14px;padding:22px 16px;border:2px solid #ede9fe}
+.svc-ico{font-size:28px;margin-bottom:10px}
+.svc-card h3{font-family:'DM Serif Display',serif;font-size:17px;color:#1c1c2e;margin-bottom:6px}
+.svc-card p{font-size:12px;color:#888;line-height:1.6}
 
-/* CTA */
-.cta{background:linear-gradient(135deg,#1c1c2e,#2a2a50);padding:80px 48px;text-align:center}
-.cta h2{font-family:'DM Serif Display',serif;font-size:52px;color:#fff;margin-bottom:12px}
+.cta{background:linear-gradient(135deg,#1c1c2e,#2a2a50);padding:52px 20px;text-align:center}
+.cta h2{font-family:'DM Serif Display',serif;font-size:38px;color:#fff;margin-bottom:10px}
 .cta h2 span{color:#f97316}
-.cta p{color:#8888aa;font-size:17px;margin-bottom:36px}
-.cta a{background:#f97316;color:#fff;padding:18px 44px;border-radius:10px;text-decoration:none;font-weight:900;font-size:17px;display:inline-block}
+.cta p{color:#8888aa;font-size:14px;margin-bottom:28px;line-height:1.65}
+.cta a{background:#f97316;color:#fff;padding:16px 32px;border-radius:10px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block}
+
+@media(min-width:700px){
+  nav{padding:0 40px}
+  .hero{padding:80px 40px;text-align:left;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .hero h1{font-size:64px}
+  .hero-sub{margin-left:0}
+  .hero-btns{flex-direction:row;max-width:none;margin-left:0}
+  .btn-orange,.btn-ghost{display:inline-block;padding:15px 28px}
+  .hero-stats{justify-content:flex-start;margin-bottom:0}
+  .project-cards{margin:0;max-width:none}
+  .orange-bar{grid-template-columns:repeat(4,1fr)}
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
+  .services{padding:72px 40px}
+  .cta{padding:72px 40px}
+  .cta h2{font-size:52px}
+}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">Craftsmen <span>Remodeling</span></div>
-  <div>
-    <a class="nav-links" href="#">Services</a>
-    <a class="nav-links" href="#">Portfolio</a>
-    <a class="nav-links" href="#">About</a>
-    <a href="#" class="nav-cta">Free Estimate</a>
-  </div>
+  <a href="tel:6015550707" class="nav-cta">Free Estimate</a>
 </nav>
 
 <div class="hero">
-  <div class="hero-left">
+  <div>
     <div class="hero-tag">Jackson, MS · Licensed &amp; Insured</div>
     <h1>Your Home,<br/>Beautifully<br/><span>Reimagined.</span></h1>
-    <p class="hero-sub">Craftsmen Remodeling transforms kitchens, bathrooms, and living spaces into something you're genuinely proud of. Quality materials, master craftsmanship, and on-time delivery — guaranteed.</p>
+    <p class="hero-sub">Quality materials, master craftsmanship, and on-time delivery — guaranteed. Kitchens, bathrooms, additions, and more.</p>
     <div class="hero-btns">
-      <a href="#" class="btn-orange">🔨 Get Free Estimate</a>
-      <a href="#" class="btn-ghost">See Our Portfolio</a>
+      <a href="tel:6015550707" class="btn-orange">🔨 Free Estimate</a>
+      <a href="#services" class="btn-ghost">See Services</a>
     </div>
     <div class="hero-stats">
-      <div class="hs-item"><div class="val">300+</div><div class="lbl">Projects Completed</div></div>
+      <div class="hs-item"><div class="val">300+</div><div class="lbl">Projects Done</div></div>
       <div class="hs-item"><div class="val">4.9★</div><div class="lbl">Google Rating</div></div>
       <div class="hs-item"><div class="val">15yr</div><div class="lbl">Experience</div></div>
     </div>
   </div>
-  <div class="hero-right">
+  <div class="project-cards">
     <div class="project-card">
       <div class="project-label">Recent Project</div>
       <h4>Full Kitchen Renovation</h4>
-      <p>Custom cabinets, quartz countertops, and new flooring — completed in 3 weeks on budget.</p>
+      <p>Custom cabinets, quartz countertops &amp; new flooring — completed in 3 weeks on budget.</p>
       <span class="project-tag">Kitchen</span>
     </div>
     <div class="project-card">
       <div class="project-label">Recent Project</div>
       <h4>Master Bath Remodel</h4>
-      <p>Walk-in tile shower, double vanity, and luxury finishes — transformed in 10 days.</p>
+      <p>Walk-in tile shower, double vanity, luxury finishes — transformed in 10 days.</p>
       <span class="project-tag">Bathroom</span>
     </div>
     <div class="project-card">
       <div class="project-label">Recent Project</div>
       <h4>Deck &amp; Outdoor Addition</h4>
-      <p>Composite deck with built-in seating and lighting — perfect for entertaining outdoors.</p>
+      <p>Composite deck with built-in seating and lighting — perfect for entertaining.</p>
       <span class="project-tag">Outdoor</span>
     </div>
   </div>
 </div>
 
 <div class="orange-bar">
-  <div class="ob-stat"><div class="n">300+</div><div class="l">Projects Done</div></div>
-  <div class="ob-stat"><div class="n">15+</div><div class="l">Years Exp</div></div>
-  <div class="ob-stat"><div class="n">4.9★</div><div class="l">Google Rating</div></div>
+  <div class="ob-stat"><div class="n">300+</div><div class="l">Projects</div></div>
+  <div class="ob-stat"><div class="n">15+</div><div class="l">Yrs Exp</div></div>
+  <div class="ob-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
   <div class="ob-stat"><div class="n">On Time</div><div class="l">Delivery</div></div>
 </div>
 
-<div class="services">
+<div class="services" id="services">
   <div class="section-label">Our Services</div>
   <div class="section-h">What We Build</div>
-  <p class="section-p">Expert remodeling for every room in your home — from concept to completion</p>
+  <p class="section-p">Expert remodeling for every room — from concept to completion</p>
   <div class="svc-grid">
-    <div class="svc-card"><div class="svc-ico">🍳</div><h3>Kitchen Remodels</h3><p>Full custom kitchen renovations — cabinets, countertops, islands, appliances, and lighting.</p></div>
-    <div class="svc-card"><div class="svc-ico">🛁</div><h3>Bathroom Renovations</h3><p>Walk-in showers, soaking tubs, double vanities, and tile work — luxury finishes on any budget.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Room Additions</h3><p>Expand your living space with a permitted addition — bedrooms, sunrooms, or bonus rooms.</p></div>
-    <div class="svc-card"><div class="svc-ico">🪟</div><h3>Flooring &amp; Windows</h3><p>Hardwood, tile, LVP &amp; carpet installation. Window replacement for energy efficiency and beauty.</p></div>
-    <div class="svc-card"><div class="svc-ico">🌳</div><h3>Decks &amp; Patios</h3><p>Composite or wood deck builds, concrete patios, pergolas, and outdoor living spaces.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏚️</div><h3>Whole-Home Renovations</h3><p>Complete gut renovations for older homes or investment properties — managed start to finish.</p></div>
+    <div class="svc-card"><div class="svc-ico">🍳</div><h3>Kitchen Remodels</h3><p>Cabinets, countertops, islands, appliances &amp; lighting — full custom renovations.</p></div>
+    <div class="svc-card"><div class="svc-ico">🛁</div><h3>Bathroom Renovations</h3><p>Walk-in showers, soaking tubs, double vanities &amp; tile — luxury on any budget.</p></div>
+    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Room Additions</h3><p>Expand your space — bedrooms, sunrooms, or bonus rooms, fully permitted.</p></div>
+    <div class="svc-card"><div class="svc-ico">🪟</div><h3>Flooring &amp; Windows</h3><p>Hardwood, tile, LVP &amp; carpet. Window replacement for energy efficiency.</p></div>
+    <div class="svc-card"><div class="svc-ico">🌳</div><h3>Decks &amp; Patios</h3><p>Composite or wood decks, concrete patios, pergolas &amp; outdoor living spaces.</p></div>
+    <div class="svc-card"><div class="svc-ico">🏚️</div><h3>Full Renovations</h3><p>Complete gut renovations for older homes or investment properties.</p></div>
   </div>
 </div>
 
 <div class="cta">
   <h2>Ready to <span>Build Something Beautiful?</span></h2>
-  <p>Call now or request a free in-home estimate. We'll walk through your vision and give you an honest quote.</p>
-  <a href="#">🔨 Schedule Free Estimate</a>
+  <p>Call now or request a free in-home estimate. We'll walk your vision and give you an honest quote.</p>
+  <a href="tel:6015550707">🔨 Call (601) 555-0707</a>
 </div>
 
 </body>
