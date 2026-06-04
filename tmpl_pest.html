@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BugOut MS — Pest Control Jackson, MS</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a1a0a;color:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{background:#0a1a0a;border-bottom:1px solid #1a3a1a;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase}
+.nav-logo span{color:#76c442}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-right a{color:#5a7a5a;font-size:13px;font-weight:600;text-decoration:none}
+.nav-cta{background:#76c442!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:800!important}
+
+/* HERO — dark, punchy, asymmetric */
+.hero{background:#0a1a0a;min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 48px;gap:60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#0f2a0f,transparent)}
+.hero-left{position:relative;z-index:1}
+.hero-warning{display:inline-flex;align-items:center;gap:10px;background:#76c44215;border:1px solid #76c44240;color:#76c442;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:28px}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:clamp(52px,7vw,88px);font-weight:700;line-height:.95;text-transform:uppercase;color:#fff;margin-bottom:22px}
+.hero h1 span{color:#76c442;display:block}
+.hero-sub{font-size:16px;color:#6a9a6a;line-height:1.8;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-green{background:#76c442;color:#000;padding:15px 30px;border-radius:6px;font-weight:900;font-size:15px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px}
+.btn-dark{background:#1a3a1a;border:1px solid #2a5a2a;color:#76c442;padding:15px 30px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none}
+.hero-promises{display:flex;flex-direction:column;gap:12px}
+.promise{display:flex;align-items:center;gap:12px}
+.promise .check{width:22px;height:22px;background:#76c442;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#000;flex-shrink:0}
+.promise span{font-size:14px;color:#8aba8a;font-weight:600}
+.hero-right{position:relative;z-index:1}
+.pest-panel{background:#0f2a0f;border:1px solid #1f4a1f;border-radius:20px;padding:40px}
+.pest-panel h3{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:24px}
+.pest-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pest-item{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:10px;padding:16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#8aba8a}
+.pest-item span{font-size:20px}
+
+/* GREEN BAR */
+.green-strip{background:#76c442;padding:18px 48px;display:flex;justify-content:center;gap:72px}
+.gs-stat .n{font-size:26px;font-weight:900;color:#000}
+.gs-stat .l{font-size:11px;font-weight:700;color:rgba(0,0,0,.55);text-transform:uppercase;letter-spacing:1px}
+
+/* SERVICES */
+.services{padding:80px 48px;background:#0d200d}
+.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#76c442;margin-bottom:10px}
+.section-h{font-family:'Rajdhani',sans-serif;font-size:48px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.section-p{color:#5a7a5a;font-size:15px;margin-bottom:48px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px}
+.svc-card{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:16px;padding:30px;transition:all .25s}
+.svc-card:hover{border-color:#76c442;background:#0f2a0f}
+.svc-ico{font-size:34px;margin-bottom:14px}
+.svc-card h3{font-size:16px;font-weight:800;color:#76c442;margin-bottom:8px}
+.svc-card p{font-size:13px;color:#5a7a5a;line-height:1.65}
+
+/* CTA */
+.cta{background:#76c442;padding:80px 48px;text-align:center}
+.cta h2{font-family:'Rajdhani',sans-serif;font-size:54px;font-weight:700;text-transform:uppercase;color:#000;margin-bottom:12px}
+.cta p{color:rgba(0,0,0,.6);font-size:17px;margin-bottom:32px}
+.cta a{background:#000;color:#76c442;padding:18px 42px;border-radius:8px;text-decoration:none;font-weight:900;font-size:17px;display:inline-block;text-transform:uppercase;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">BUG<span>OUT</span> MS</div>
+  <div class="nav-right">
+    <a href="#">Pests We Treat</a>
+    <a href="#">Plans</a>
+    <a href="#" class="nav-cta">Free Inspection</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-warning">🚨 Bugs Don't Stand a Chance</div>
+    <h1>We Evict<span>Your Pests.</span></h1>
+    <p class="hero-sub">BugOut MS uses targeted treatments to eliminate insects and rodents fast — and keep them gone for good. Guaranteed protection, every visit.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-green">🐛 Get Free Inspection</a>
+      <a href="#" class="btn-dark">View Treatment Plans</a>
+    </div>
+    <div class="hero-promises">
+      <div class="promise"><div class="check">✓</div><span>Same-day or next-day appointments available</span></div>
+      <div class="promise"><div class="check">✓</div><span>Kid and pet-safe treatments</span></div>
+      <div class="promise"><div class="check">✓</div><span>Re-treatment guarantee if bugs return</span></div>
+      <div class="promise"><div class="check">✓</div><span>Locally owned — not a franchise</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pest-panel">
+      <h3>Pests We Eliminate</h3>
+      <div class="pest-list">
+        <div class="pest-item"><span>🐜</span> Ants</div>
+        <div class="pest-item"><span>🕷️</span> Spiders</div>
+        <div class="pest-item"><span>🪳</span> Roaches</div>
+        <div class="pest-item"><span>🐀</span> Rodents</div>
+        <div class="pest-item"><span>🦟</span> Mosquitoes</div>
+        <div class="pest-item"><span>🐝</span> Wasps</div>
+        <div class="pest-item"><span>🦗</span> Crickets</div>
+        <div class="pest-item"><span>🪲</span> Beetles</div>
+        <div class="pest-item"><span>🦔</span> Bed Bugs</div>
+        <div class="pest-item"><span>🐛</span> Termites</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="green-strip">
+  <div class="gs-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
+  <div class="gs-stat"><div class="n">1,200+</div><div class="l">Homes Protected</div></div>
+  <div class="gs-stat"><div class="n">10+</div><div class="l">Years in MS</div></div>
+  <div class="gs-stat"><div class="n">100%</div><div class="l">Satisfaction</div></div>
+</div>
+
+<div class="services">
+  <div class="section-label">Treatment Plans</div>
+  <div class="section-h">How We Protect You</div>
+  <p class="section-p">One-time treatments or ongoing protection plans — choose what fits your needs</p>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Quarterly Protection</h3><p>Four treatments per year keeping a chemical barrier around your entire home year-round.</p></div>
+    <div class="svc-card"><div class="svc-ico">🎯</div><h3>One-Time Treatment</h3><p>Targeted elimination for a specific pest problem — guaranteed to work or we return free.</p></div>
+    <div class="svc-card"><div class="svc-ico">🦟</div><h3>Mosquito Control</h3><p>Monthly yard treatments from March through October — reclaim your outdoor space.</p></div>
+    <div class="svc-card"><div class="svc-ico">🪲</div><h3>Termite Prevention</h3><p>Bait stations and liquid treatments to protect your home's structure and foundation.</p></div>
+    <div class="svc-card"><div class="svc-ico">🐀</div><h3>Rodent Exclusion</h3><p>We seal entry points, set traps, and eliminate the colony — not just the symptoms.</p></div>
+    <div class="svc-card"><div class="svc-ico">🏢</div><h3>Commercial Pest Control</h3><p>Restaurants, warehouses, offices — compliant, discreet, and effective for any business.</p></div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>Stop Sharing Your Home</h2>
+  <p>Call now or book online. Free inspection — no obligation, no pressure.</p>
+  <a href="#">📞 Call (601) 555-0404</a>
+</div>
+
+</body>
+</html>
