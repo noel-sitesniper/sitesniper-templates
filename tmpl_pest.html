@@ -7,131 +7,150 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0a1a0a;color:#fff;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-nav{background:#0a1a0a;border-bottom:1px solid #1a3a1a;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase}
-.nav-logo span{color:#76c442}
-.nav-cta{background:#76c442;color:#000;padding:9px 16px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none}
+/* LAYOUT: Warning-style alert hero → pest grid → plans table → guarantee */
+.alert-bar{background:#76c442;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+.alert-bar span{font-size:12px;font-weight:800;color:#000}
+.alert-bar a{background:#000;color:#76c442;padding:7px 14px;border-radius:6px;font-weight:900;font-size:12px;text-decoration:none}
 
-.hero{background:#0a1a0a;padding:52px 20px 48px;text-align:center}
-.hero-warning{display:inline-flex;align-items:center;gap:8px;background:rgba(118,196,66,.1);border:1px solid rgba(118,196,66,.25);color:#76c442;padding:7px 16px;border-radius:6px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
-.hero h1{font-family:'Rajdhani',sans-serif;font-size:60px;font-weight:700;line-height:.95;text-transform:uppercase;color:#fff;margin-bottom:18px}
-.hero h1 span{color:#76c442;display:block}
-.hero-sub{font-size:15px;color:#6a9a6a;line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto 36px}
-.btn-green{background:#76c442;color:#000;padding:15px;border-radius:6px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;text-transform:uppercase}
-.btn-dark{background:#1a3a1a;border:1px solid #2a5a2a;color:#76c442;padding:14px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;display:block;text-align:center}
-.hero-promises{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto 36px}
-.promise{display:flex;align-items:center;gap:10px;text-align:left}
-.promise .check{width:22px;height:22px;background:#76c442;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#000;flex-shrink:0}
-.promise span{font-size:13px;color:#8aba8a;font-weight:600}
-.pest-panel{background:#0f2a0f;border:1px solid #1f4a1f;border-radius:16px;padding:24px;max-width:400px;margin:0 auto}
-.pest-panel h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:18px;text-align:center}
-.pest-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pest-item{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#8aba8a}
-.pest-item span{font-size:18px}
+/* Hero: dark warning style */
+.hero{background:#0a1a0a;padding:44px 20px 36px;position:relative;overflow:hidden}
+.hero-corner{position:absolute;top:0;right:0;width:120px;height:120px;background:rgba(118,196,66,.06);border-radius:0 0 0 120px}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(118,196,66,.12);border:1px solid rgba(118,196,66,.3);color:#76c442;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:6px;margin-bottom:20px}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:56px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:16px}
+.hero h1 span{color:#76c442}
+.hero p{font-size:15px;color:#6a9a6a;line-height:1.75;margin-bottom:28px;max-width:400px}
+.hero-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.btn-g{background:#76c442;color:#000;padding:15px 20px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;text-transform:uppercase}
+.btn-ghost{border:1px solid #2a4a2a;color:#76c442;padding:13px 20px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;display:block;text-align:center}
 
-.green-strip{background:#76c442;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.gs-stat{text-align:center}
-.gs-stat .n{font-size:22px;font-weight:900;color:#000}
-.gs-stat .l{font-size:10px;font-weight:700;color:rgba(0,0,0,.55);text-transform:uppercase;letter-spacing:1px}
+/* Pest grid: what we kill */
+.pest-grid-section{background:#0f2a0f;padding:36px 20px}
+.pg-title{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:20px;text-align:center}
+.pest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pest-item{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:12px;padding:16px 8px;text-align:center}
+.pest-item .ico{font-size:26px;display:block;margin-bottom:6px}
+.pest-item span{font-size:11px;font-weight:700;color:#8aba8a;display:block}
+.pest-item.dead{border-color:rgba(118,196,66,.3)}
+.pest-item.dead span{color:#76c442}
 
-.services{padding:52px 20px;background:#0d200d}
-.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#76c442;margin-bottom:8px}
-.section-h{font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:6px}
-.section-p{color:#5a7a5a;font-size:14px;margin-bottom:32px}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc-card{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:14px;padding:22px 16px}
-.svc-ico{font-size:28px;margin-bottom:10px}
-.svc-card h3{font-size:14px;font-weight:800;color:#76c442;margin-bottom:6px}
-.svc-card p{font-size:12px;color:#5a7a5a;line-height:1.6}
+/* Stats */
+.stats-row{background:#76c442;display:grid;grid-template-columns:repeat(2,1fr)}
+.sr-stat{padding:22px 14px;text-align:center;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
+.sr-stat:nth-child(2){border-right:none}
+.sr-stat:nth-child(3){border-bottom:none}
+.sr-stat:nth-child(4){border-right:none;border-bottom:none}
+.sr-stat .n{font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;color:#000;line-height:1}
+.sr-stat .l{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.5);margin-top:3px}
 
-.cta{background:#76c442;padding:52px 20px;text-align:center}
-.cta h2{font-family:'Rajdhani',sans-serif;font-size:44px;font-weight:700;text-transform:uppercase;color:#000;margin-bottom:10px}
-.cta p{color:rgba(0,0,0,.6);font-size:14px;margin-bottom:28px;line-height:1.65}
-.cta a{background:#000;color:#76c442;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block;text-transform:uppercase}
+/* Plans */
+.plans{padding:44px 20px;background:#fff}
+.plans-hdr{margin-bottom:28px}
+.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#76c442;margin-bottom:6px}
+.sec-h{font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#0a1a0a;margin-bottom:6px}
+.plan-cards{display:flex;flex-direction:column;gap:14px}
+.plan-card{border-radius:14px;padding:24px;border:2px solid #e8f5e8;display:flex;gap:16px;align-items:flex-start}
+.plan-card.featured{background:#0a1a0a;border-color:#76c442}
+.plan-ico{width:48px;height:48px;background:#e8f5e8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.plan-card.featured .plan-ico{background:#1a3a1a}
+.plan-card h3{font-size:16px;font-weight:800;color:#0a1a0a;margin-bottom:4px}
+.plan-card.featured h3{color:#76c442}
+.plan-card p{font-size:13px;color:#6a8a6a;line-height:1.6}
+.plan-card.featured p{color:#8aba8a}
+.plan-badge{display:inline-block;background:#76c442;color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:4px;margin-top:8px;text-transform:uppercase}
+
+/* Guarantee block */
+.guarantee{background:#0a1a0a;padding:44px 20px;text-align:center}
+.g-shield{font-size:64px;display:block;margin-bottom:20px}
+.guarantee h2{font-family:'Rajdhani',sans-serif;font-size:44px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:12px}
+.guarantee p{font-size:14px;color:#6a9a6a;line-height:1.75;max-width:380px;margin:0 auto 28px}
+.guarantee a{background:#76c442;color:#000;padding:15px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block;text-transform:uppercase}
 
 @media(min-width:700px){
-  nav{padding:0 40px}
-  .hero{padding:80px 40px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .hero h1{font-size:88px}
-  .hero-sub{margin-left:0}
-  .hero-btns{flex-direction:row;max-width:none;margin-left:0}
-  .btn-green,.btn-dark{display:inline-block;padding:15px 28px}
-  .hero-promises{margin-left:0}
-  .pest-panel{margin:0}
-  .green-strip{grid-template-columns:repeat(4,1fr)}
-  .svc-grid{grid-template-columns:repeat(3,1fr)}
-  .services{padding:72px 40px}
-  .cta{padding:72px 40px}
-  .cta h2{font-size:54px}
+  .hero{padding:72px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .hero h1{font-size:80px}
+  .hero p{margin-bottom:0}
+  .hero-actions{flex-direction:row}
+  .btn-g,.btn-ghost{display:inline-block;padding:15px 28px}
+  .pest-grid-section{padding:48px 40px}
+  .pest-grid{grid-template-columns:repeat(4,1fr)}
+  .stats-row{grid-template-columns:repeat(4,1fr)}
+  .sr-stat{border-bottom:none}
+  .sr-stat:nth-child(2){border-right:1px solid rgba(0,0,0,.1)}
+  .sr-stat:nth-child(3){border-right:1px solid rgba(0,0,0,.1)}
+  .plans{padding:64px 40px}
+  .plan-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;flex-direction:row}
+  .guarantee{padding:64px 40px}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">BUG<span>OUT</span> MS</div>
-  <a href="tel:6015550404" class="nav-cta">Free Inspection</a>
-</nav>
+<div class="alert-bar">
+  <span>🚨 Bugs don't stand a chance. Call today — free inspection.</span>
+  <a href="tel:6015550404">📞 Call Now</a>
+</div>
 
 <div class="hero">
   <div>
-    <div class="hero-warning">🚨 Bugs Don't Stand a Chance</div>
-    <h1>We Evict<span>Your Pests.</span></h1>
-    <p class="hero-sub">BugOut MS uses targeted treatments to eliminate insects and rodents fast — and keep them gone for good. Guaranteed protection every visit.</p>
-    <div class="hero-btns">
-      <a href="tel:6015550404" class="btn-green">🐛 Free Inspection</a>
-      <a href="#services" class="btn-dark">View Plans</a>
-    </div>
-    <div class="hero-promises">
-      <div class="promise"><div class="check">✓</div><span>Same-day or next-day appointments</span></div>
-      <div class="promise"><div class="check">✓</div><span>Kid and pet-safe treatments</span></div>
-      <div class="promise"><div class="check">✓</div><span>Re-treatment guarantee if bugs return</span></div>
-      <div class="promise"><div class="check">✓</div><span>Locally owned — not a franchise</span></div>
+    <div class="hero-tag">🐛 Jackson's Pest Experts</div>
+    <h1>We Evict<br/><span>Your Pests.</span></h1>
+    <p>BugOut MS uses targeted treatments to eliminate insects and rodents — fast, safe for your family, and backed by our re-treatment guarantee.</p>
+    <div class="hero-actions">
+      <a href="tel:6015550404" class="btn-g">Free Inspection</a>
+      <a href="#plans" class="btn-ghost">View Plans</a>
     </div>
   </div>
-  <div class="pest-panel">
-    <h3>Pests We Eliminate</h3>
-    <div class="pest-list">
-      <div class="pest-item"><span>🐜</span> Ants</div>
-      <div class="pest-item"><span>🕷️</span> Spiders</div>
-      <div class="pest-item"><span>🪳</span> Roaches</div>
-      <div class="pest-item"><span>🐀</span> Rodents</div>
-      <div class="pest-item"><span>🦟</span> Mosquitoes</div>
-      <div class="pest-item"><span>🐝</span> Wasps</div>
-      <div class="pest-item"><span>🦗</span> Crickets</div>
-      <div class="pest-item"><span>🪲</span> Termites</div>
+  <div style="background:#0f2a0f;border:1px solid #1a4a1a;border-radius:18px;padding:28px">
+    <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#76c442;margin-bottom:18px">Why BugOut?</p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Same-day or next-day service</div>
+      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Kid &amp; pet-safe treatments</div>
+      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Free re-treatment if bugs return</div>
+      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Locally owned — not a franchise</div>
     </div>
   </div>
 </div>
 
-<div class="green-strip">
-  <div class="gs-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
-  <div class="gs-stat"><div class="n">1,200+</div><div class="l">Homes</div></div>
-  <div class="gs-stat"><div class="n">10+</div><div class="l">Yrs in MS</div></div>
-  <div class="gs-stat"><div class="n">100%</div><div class="l">Guaranteed</div></div>
-</div>
-
-<div class="services" id="services">
-  <div class="section-label">Treatment Plans</div>
-  <div class="section-h">How We Protect You</div>
-  <p class="section-p">One-time treatments or ongoing protection — choose what fits your needs</p>
-  <div class="svc-grid">
-    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Quarterly Protection</h3><p>Four treatments per year keeping a barrier around your entire home.</p></div>
-    <div class="svc-card"><div class="svc-ico">🎯</div><h3>One-Time Treatment</h3><p>Targeted elimination — guaranteed or we return free.</p></div>
-    <div class="svc-card"><div class="svc-ico">🦟</div><h3>Mosquito Control</h3><p>Monthly yard treatments March–October. Reclaim your outdoor space.</p></div>
-    <div class="svc-card"><div class="svc-ico">🪲</div><h3>Termite Prevention</h3><p>Bait stations and liquid treatments to protect your home's foundation.</p></div>
-    <div class="svc-card"><div class="svc-ico">🐀</div><h3>Rodent Exclusion</h3><p>Seal entry points, set traps, and eliminate the colony.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏢</div><h3>Commercial</h3><p>Compliant, discreet pest control for restaurants, offices &amp; warehouses.</p></div>
+<div class="pest-grid-section">
+  <div class="pg-title">Pests We Eliminate</div>
+  <div class="pest-grid">
+    <div class="pest-item dead"><span class="ico">🐜</span><span>Ants</span></div>
+    <div class="pest-item dead"><span class="ico">🪳</span><span>Roaches</span></div>
+    <div class="pest-item dead"><span class="ico">🕷️</span><span>Spiders</span></div>
+    <div class="pest-item dead"><span class="ico">🐀</span><span>Rodents</span></div>
+    <div class="pest-item dead"><span class="ico">🦟</span><span>Mosquitoes</span></div>
+    <div class="pest-item dead"><span class="ico">🐝</span><span>Wasps</span></div>
+    <div class="pest-item dead"><span class="ico">🪲</span><span>Termites</span></div>
+    <div class="pest-item dead"><span class="ico">🦗</span><span>Crickets</span></div>
   </div>
 </div>
 
-<div class="cta">
-  <h2>Stop Sharing Your Home</h2>
-  <p>Call now or book online. Free inspection — no obligation, no pressure.</p>
-  <a href="tel:6015550404">📞 (601) 555-0404</a>
+<div class="stats-row">
+  <div class="sr-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
+  <div class="sr-stat"><div class="n">1,200</div><div class="l">Homes Treated</div></div>
+  <div class="sr-stat"><div class="n">10yr</div><div class="l">In Business</div></div>
+  <div class="sr-stat"><div class="n">100%</div><div class="l">Guaranteed</div></div>
+</div>
+
+<div class="plans" id="plans">
+  <div class="plans-hdr">
+    <div class="sec-tag">Protection Plans</div>
+    <div class="sec-h">How We Protect You</div>
+  </div>
+  <div class="plan-cards">
+    <div class="plan-card"><div class="plan-ico">🎯</div><div><h3>One-Time Treatment</h3><p>Targeted elimination of your specific pest problem — guaranteed or we return free.</p></div></div>
+    <div class="plan-card featured"><div class="plan-ico">🏠</div><div><h3>Quarterly Protection</h3><p>Four treatments per year keeping a protective barrier around your entire home year-round.</p><span class="plan-badge">Best Value</span></div></div>
+    <div class="plan-card"><div class="plan-ico">🦟</div><div><h3>Mosquito Control</h3><p>Monthly yard treatments March–October. Reclaim your backyard all summer long.</p></div></div>
+  </div>
+</div>
+
+<div class="guarantee">
+  <span class="g-shield">🛡️</span>
+  <h2>The BugOut Guarantee</h2>
+  <p>If pests return between treatments, we come back and re-treat at absolutely zero cost to you. No fine print, no hassle.</p>
+  <a href="tel:6015550404">📞 Free Inspection Today</a>
 </div>
 
 </body>
