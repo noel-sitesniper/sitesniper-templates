@@ -9,148 +9,171 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-/* LAYOUT: Bold full-bleed hero banner → card grid → trust → CTA */
-.hero{background:linear-gradient(160deg,#1a0505 0%,#3d0a0a 100%);padding:0;min-height:80vw;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
-.hero-bg-text{position:absolute;top:20px;left:-10px;font-family:'Oswald',sans-serif;font-size:120px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,.04);line-height:1;white-space:nowrap;user-select:none}
-.hero-inner{position:relative;z-index:2;padding:0 20px 36px}
-.hero-logo{display:flex;align-items:center;gap:8px;margin-bottom:24px;padding-top:24px}
-.hero-logo span{background:#c0392b;color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:4px;text-transform:uppercase;letter-spacing:1px}
-.hero-logo .name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#fff;letter-spacing:1px}
-.hero h1{font-family:'Oswald',sans-serif;font-size:52px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:14px}
-.hero h1 em{color:#e74c3c;font-style:normal}
-.hero-sub{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px;max-width:380px}
-.hero-actions{display:flex;flex-direction:column;gap:10px}
-.btn-red{background:#e74c3c;color:#fff;padding:16px 20px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center}
-.hero-rating{display:flex;align-items:center;gap:8px;margin-top:16px}
-.hero-rating .stars{color:#e74c3c;font-size:14px}
-.hero-rating span{color:rgba(255,255,255,.5);font-size:12px}
+/* NAV */
+.nav{background:#1a0505;border-bottom:3px solid #c0392b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:1px;white-space:nowrap;flex-shrink:0}
+.logo span{color:#e74c3c}
+.nav-btn{background:#e74c3c;color:#fff;padding:9px 14px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Proof cards - horizontal scroll on mobile */
-.proof{padding:24px 0 24px 20px;background:#fafafa}
-.proof-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#c0392b;margin-bottom:16px}
-.proof-scroll{display:flex;overflow-x:auto;gap:12px;padding-right:20px;scrollbar-width:none}
-.proof-scroll::-webkit-scrollbar{display:none}
-.proof-card{background:#fff;border:2px solid #f0e0e0;border-radius:14px;padding:20px;min-width:180px;flex-shrink:0;text-align:center}
-.proof-card .icon{font-size:28px;margin-bottom:10px}
-.proof-card h3{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:#1a0505;margin-bottom:4px}
-.proof-card p{font-size:12px;color:#888}
+/* HERO CAROUSEL */
+.hero{position:relative;height:88vw;max-height:520px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.2s;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,5,5,.4),rgba(26,5,5,.85))}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;z-index:2}
+.hero-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#e74c3c;margin-bottom:10px}
+.hero h1{font-family:'Oswald',sans-serif;font-size:48px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:10px}
+.hero h1 em{color:#e74c3c;font-style:normal;display:block}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.6}
+.hero-btn{background:#e74c3c;color:#fff;padding:14px 24px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#e74c3c}
 
-/* Services: icon + text cards in 2-col */
-.services{padding:44px 20px;background:#fff}
-.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#e74c3c;margin-bottom:8px}
-.sec-h{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#1a0505;line-height:1;margin-bottom:28px}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc-card{border-radius:14px;padding:22px 16px;background:#fdf5f5;border:2px solid #f5dada}
-.svc-card .ico{font-size:26px;margin-bottom:10px}
-.svc-card h3{font-size:14px;font-weight:800;color:#1a0505;margin-bottom:6px}
-.svc-card p{font-size:12px;color:#888;line-height:1.6}
+/* PROOF STRIP */
+.proof{padding:16px 0 16px 16px;background:#fdf5f5;display:flex;overflow-x:auto;gap:10px;scrollbar-width:none}
+.proof::-webkit-scrollbar{display:none}
+.proof-card{background:#fff;border:2px solid #f5dada;border-radius:12px;padding:16px;min-width:150px;flex-shrink:0;text-align:center}
+.proof-card .icon{font-size:24px;margin-bottom:6px}
+.proof-card h3{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#1a0505;margin-bottom:2px}
+.proof-card p{font-size:11px;color:#888}
 
-/* Insurance callout - big accent block */
-.insurance{background:#e74c3c;padding:44px 20px;text-align:center}
-.insurance h2{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.1}
-.insurance p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:24px;max-width:380px;margin-left:auto;margin-right:auto}
-.insurance a{background:#fff;color:#e74c3c;padding:15px 28px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:inline-block}
+/* SERVICES */
+.services{padding:40px 20px;background:#fff}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#e74c3c}
+.sec-h{font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;text-transform:uppercase;color:#1a0505;line-height:1;margin:6px 0 24px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.svc-card{border-radius:12px;padding:18px 14px;background:#fdf5f5;border:2px solid #f5dada}
+.svc-card .ico{font-size:22px;margin-bottom:8px}
+.svc-card h3{font-size:13px;font-weight:800;color:#1a0505;margin-bottom:4px}
+.svc-card p{font-size:11px;color:#888;line-height:1.6}
 
-/* Reviews strip */
-.reviews{padding:44px 20px;background:#1a0505}
+/* OUR WORK */
+.work{padding:40px 0 40px 20px;background:#fafafa}
+.work-scroll{display:flex;overflow-x:auto;gap:12px;margin-top:18px;padding-right:20px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.wc{min-width:220px;height:150px;border-radius:12px;overflow:hidden;flex-shrink:0;position:relative}
+.wc img{width:100%;height:100%;object-fit:cover}
+.wc-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));padding:10px;color:#fff;font-size:11px;font-weight:700}
+
+/* INSURANCE CALLOUT */
+.insurance{background:#e74c3c;padding:40px 20px;text-align:center}
+.insurance h2{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:10px;line-height:1.1}
+.insurance p{font-size:14px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:22px}
+.insurance a{background:#fff;color:#e74c3c;padding:14px 26px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block}
+
+/* REVIEWS */
+.reviews{padding:40px 20px;background:#1a0505}
 .reviews .sec-tag{color:#e74c3c}
-.reviews .sec-h{color:#fff;font-size:32px;margin-bottom:24px}
+.reviews .sec-h{color:#fff;margin-bottom:22px}
 .rv-list{display:flex;flex-direction:column;gap:16px}
 .rv{border-left:3px solid #e74c3c;padding-left:16px}
-.rv p{font-size:13px;color:#bbb;line-height:1.7;margin-bottom:8px;font-style:italic}
-.rv .author{font-size:12px;font-weight:700;color:#e74c3c}
+.rv p{font-size:13px;color:#bbb;line-height:1.7;margin-bottom:6px;font-style:italic}
+.rv .auth{font-size:11px;font-weight:700;color:#e74c3c}
 
-/* Footer CTA */
-.footer-cta{background:#fff;padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:4px solid #e74c3c}
-.footer-cta .txt h3{font-size:17px;font-weight:900;color:#1a0505}
-.footer-cta .txt p{font-size:12px;color:#888;margin-top:2px}
-.footer-cta a{background:#e74c3c;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:900;font-size:13px;white-space:nowrap;flex-shrink:0}
+/* FOOTER CTA */
+.footer-cta{background:#fff;padding:20px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:4px solid #e74c3c}
+.ft-txt h3{font-size:15px;font-weight:900;color:#1a0505}
+.ft-txt p{font-size:11px;color:#888;margin-top:2px}
+.footer-cta a{background:#e74c3c;color:#fff;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:900;font-size:13px;white-space:nowrap;flex-shrink:0}
 
 @media(min-width:700px){
-  .hero{min-height:50vh;flex-direction:row;align-items:flex-end}
-  .hero-inner{padding:40px}
-  .hero-bg-text{font-size:200px}
-  .hero h1{font-size:80px}
-  .hero-actions{flex-direction:row}
-  .btn-red{display:inline-block;padding:16px 28px}
-  .proof{padding:32px 40px}
-  .proof-scroll{flex-wrap:wrap}
-  .proof-card{min-width:0;flex:1}
-  .services{padding:64px 40px}
+  .hero{height:500px;max-height:600px}
+  .hero h1{font-size:72px}
+  .proof{flex-wrap:wrap;padding:24px 40px}
+  .proof-card{flex:1;min-width:0}
+  .services{padding:60px 40px}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
+  .work{padding:60px 0 60px 40px}
   .insurance{padding:60px 40px}
-  .reviews{padding:60px 40px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
-  .rv-list{gap:24px}
+  .reviews{padding:60px 40px}
 }
 </style>
 </head>
 <body>
 
+<div class="nav">
+  <div class="logo">🏠 SHIELD <span>ROOFING</span></div>
+  <a href="tel:6015550303" class="nav-btn">📞 Free Inspection</a>
+</div>
+
 <div class="hero">
-  <div class="hero-bg-text">ROOF ROOF ROOF</div>
-  <div class="hero-inner">
-    <div class="hero-logo">
-      <span>🏠 Shield</span>
-      <div class="name">ROOFING MS</div>
-    </div>
-    <h1>Bad Weather<br/>Stops <em>Here.</em></h1>
-    <p class="hero-sub">Storm damage, full replacements, or minor repairs — certified crews, premium materials, lifetime workmanship warranty.</p>
-    <div class="hero-actions">
-      <a href="tel:6015550303" class="btn-red">🏠 Free Inspection</a>
-    </div>
-    <div class="hero-rating">
-      <span class="stars">⭐⭐⭐⭐⭐</span>
-      <span>4.9 Stars · 140+ Google Reviews</span>
-    </div>
+  <!-- Roofing-specific: shingles, roofers on roof, storm damage, gutters -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/5824895/pexels-photo-5824895.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/8293778/pexels-photo-8293778.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Jackson, MS · Licensed &amp; Insured</div>
+    <h1>Bad Weather<em>Stops Here.</em></h1>
+    <p class="hero-sub">Storm damage, full replacements, or repairs — premium materials, lifetime warranty, zero hassle on insurance claims.</p>
+    <a href="tel:6015550303" class="hero-btn">🏠 Free Inspection</a>
+  </div>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
 <div class="proof">
-  <div class="proof-label">Our Track Record</div>
-  <div class="proof-scroll">
-    <div class="proof-card"><div class="icon">🏠</div><h3>500+</h3><p>Roofs Replaced</p></div>
-    <div class="proof-card"><div class="icon">⭐</div><h3>4.9</h3><p>Google Stars</p></div>
-    <div class="proof-card"><div class="icon">🛡️</div><h3>Life</h3><p>time Warranty</p></div>
-    <div class="proof-card"><div class="icon">⚡</div><h3>24hr</h3><p>Emergency Tarp</p></div>
-    <div class="proof-card"><div class="icon">📋</div><h3>18yr</h3><p>Experience</p></div>
+  <div class="proof-card"><div class="icon">🏠</div><h3>500+</h3><p>Roofs Replaced</p></div>
+  <div class="proof-card"><div class="icon">⭐</div><h3>4.9</h3><p>Google Stars</p></div>
+  <div class="proof-card"><div class="icon">🛡️</div><h3>Life</h3><p>time Warranty</p></div>
+  <div class="proof-card"><div class="icon">⚡</div><h3>24hr</h3><p>Emergency Tarp</p></div>
+</div>
+
+<div class="services">
+  <div class="sec-tag">Services</div>
+  <div class="sec-h">What We Cover</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="ico">🏠</div><h3>Full Replacement</h3><p>GAF or Owens Corning shingles with manufacturer warranty.</p></div>
+    <div class="svc-card"><div class="ico">🔧</div><h3>Roof Repairs</h3><p>Leaks, missing shingles, flashing failures — fixed fast.</p></div>
+    <div class="svc-card"><div class="ico">⛈️</div><h3>Storm Claims</h3><p>We handle your insurance adjuster start to finish.</p></div>
+    <div class="svc-card"><div class="ico">🌿</div><h3>Gutters</h3><p>Seamless aluminum gutters with leaf guards installed same day.</p></div>
+    <div class="svc-card"><div class="ico">🏢</div><h3>Commercial</h3><p>TPO, EPDM, and flat roof systems for commercial buildings.</p></div>
+    <div class="svc-card"><div class="ico">🔍</div><h3>Free Inspection</h3><p>Honest report with photos — no pressure, no cost.</p></div>
   </div>
 </div>
 
-<div class="services" id="services">
-  <div class="sec-tag">Services</div>
-  <div class="sec-h">What We<br/>Cover</div>
-  <div class="svc-grid">
-    <div class="svc-card"><div class="ico">🏠</div><h3>Full Replacement</h3><p>GAF or Owens Corning shingles with manufacturer warranty included.</p></div>
-    <div class="svc-card"><div class="ico">🔧</div><h3>Roof Repairs</h3><p>Leaks, missing shingles, flashing — fixed before small becomes big.</p></div>
-    <div class="svc-card"><div class="ico">⛈️</div><h3>Storm Claims</h3><p>We handle your insurance adjuster so you don't have to.</p></div>
-    <div class="svc-card"><div class="ico">🌿</div><h3>Gutters</h3><p>Seamless aluminum gutters and leaf guards — installed same day.</p></div>
-    <div class="svc-card"><div class="ico">🏢</div><h3>Commercial</h3><p>TPO, EPDM, and flat roof systems for commercial buildings.</p></div>
-    <div class="svc-card"><div class="ico">🔍</div><h3>Free Inspection</h3><p>No pressure, no cost — honest report with photos delivered same day.</p></div>
+<div class="work">
+  <div class="sec-tag" style="padding-right:20px">Our Work</div>
+  <div class="sec-h" style="padding-right:20px">Recent Projects</div>
+  <div class="work-scroll">
+    <div class="wc"><img src="https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg?auto=compress&w=500" alt="Roof replacement"/><div class="wc-lbl">Full Replacement</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/5824895/pexels-photo-5824895.jpeg?auto=compress&w=500" alt="Roof repair"/><div class="wc-lbl">Storm Repair</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/8293778/pexels-photo-8293778.jpeg?auto=compress&w=500" alt="Shingles"/><div class="wc-lbl">Shingle Install</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&w=500" alt="Gutter install"/><div class="wc-lbl">Gutter Install</div></div>
   </div>
 </div>
 
 <div class="insurance">
   <h2>Storm Damage?<br/>We Handle Insurance.</h2>
-  <p>We work directly with your insurance adjuster from start to finish — at zero out-of-pocket cost to you in most cases.</p>
-  <a href="tel:6015550303">📞 Start Your Claim Today</a>
+  <p>We work directly with your adjuster from inspection to final check — most homeowners pay $0 out of pocket.</p>
+  <a href="tel:6015550303">📞 Start Your Claim</a>
 </div>
 
 <div class="reviews">
-  <div>
-    <div class="sec-tag">Reviews</div>
-    <div class="sec-h">What Clients Say</div>
-  </div>
+  <div class="sec-tag">Reviews</div>
+  <div class="sec-h">What Clients Say</div>
   <div class="rv-list">
-    <div class="rv"><p>"Full replacement done in one day. The crew was professional, fast, and left our yard cleaner than they found it."</p><div class="author">— DeShawn M., Jackson MS</div></div>
-    <div class="rv"><p>"Storm took out half our shingles. Shield handled everything with our insurance — zero hassle on our end."</p><div class="author">— Angela P., Flowood MS</div></div>
-    <div class="rv"><p>"Honest inspection, fair price, quality work. I recommend them to everyone in my neighborhood."</p><div class="author">— Robert H., Madison MS</div></div>
+    <div class="rv"><p>"Full replacement done in one day. Crew was professional and left the yard spotless."</p><div class="auth">— DeShawn M., Jackson MS</div></div>
+    <div class="rv"><p>"Shield handled our insurance claim from A to Z. Zero hassle on our end."</p><div class="auth">— Angela P., Flowood MS</div></div>
+    <div class="rv"><p>"Honest inspection, fair price, quality work. I recommend them to the whole neighborhood."</p><div class="auth">— Robert H., Madison MS</div></div>
   </div>
 </div>
 
 <div class="footer-cta">
-  <div class="txt"><h3>Ready for a free inspection?</h3><p>Serving Jackson, Madison, Rankin &amp; beyond</p></div>
+  <div class="ft-txt"><h3>Ready for a free inspection?</h3><p>Serving Jackson, Madison, Rankin County</p></div>
   <a href="tel:6015550303">📞 Call Now</a>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length)},4000);
+</script>
 </body>
 </html>
