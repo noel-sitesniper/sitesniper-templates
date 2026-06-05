@@ -7,134 +7,181 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f9fbf5;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-/* LAYOUT: Centered serif editorial — no traditional nav, just logo + phone sticky */
-.sticky-bar{position:sticky;top:0;z-index:100;background:rgba(249,251,245,.95);backdrop-filter:blur(8px);border-bottom:1px solid #d8eed8;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
-.s-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#1a3a1a}
-.s-logo span{color:#4a7c3f}
-.s-phone{background:#4a7c3f;color:#fff;padding:9px 16px;border-radius:50px;font-weight:800;font-size:13px;text-decoration:none}
+/* NAV */
+.nav{background:#fff;border-bottom:2px solid #4a7c3f;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(74,124,63,.1)}
+.logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#1a3a1a;white-space:nowrap;flex-shrink:0}
+.logo span{color:#4a7c3f}
+.nav-btn{background:#4a7c3f;color:#fff;padding:9px 14px;border-radius:50px;font-weight:800;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Hero: centered editorial style */
-.hero{padding:56px 24px 0;text-align:center;background:#f9fbf5}
-.hero-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:#4a7c3f;margin-bottom:16px}
-.hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:#1a3a1a;line-height:1.05;margin-bottom:8px}
-.hero h1 .italic{font-style:italic;color:#4a7c3f}
-.hero-rule{width:60px;height:3px;background:#4a7c3f;margin:20px auto;border-radius:2px}
-.hero p{font-size:15px;color:#5a7a5a;line-height:1.8;max-width:440px;margin:0 auto 32px}
-.hero-action{display:inline-flex;align-items:center;gap:8px;background:#4a7c3f;color:#fff;padding:15px 28px;border-radius:50px;text-decoration:none;font-weight:800;font-size:15px}
+/* HERO CAROUSEL - full bleed */
+.hero{position:relative;height:100vw;max-height:560px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.4s;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,58,26,.65) 0%,rgba(26,58,26,.85) 100%)}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 24px;z-index:2;text-align:center;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:100px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:46px;font-weight:900;color:#fff;line-height:1.05;margin-bottom:12px}
+.hero h1 em{color:#a8e88a;font-style:italic;display:block}
+.hero-rule{width:50px;height:3px;background:#76c442;border-radius:2px;margin:0 auto 14px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.8);line-height:1.7;max-width:360px;margin-bottom:24px}
+.hero-btns{display:flex;flex-direction:column;gap:10px;width:100%;max-width:300px}
+.hero-btn-main{background:#76c442;color:#000;padding:15px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;text-align:center;font-family:'Playfair Display',serif}
+.hero-btn-sub{border:2px solid rgba(255,255,255,.4);color:#fff;padding:13px;border-radius:50px;font-weight:600;font-size:14px;text-decoration:none;text-align:center}
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#76c442}
 
-/* Feature image placeholder strip */
-.img-strip{display:flex;gap:2px;height:200px;margin-top:40px;overflow:hidden}
-.img-pane{flex:1;display:flex;align-items:center;justify-content:center;font-size:48px;background:#d4edd4}
-.img-pane:nth-child(2){background:#c2e0c2;flex:1.5}
-.img-pane:nth-child(3){background:#b5d5b5}
+/* TRUST CHIPS */
+.trust{display:flex;overflow-x:auto;gap:10px;padding:16px;background:#f4faf4;scrollbar-width:none}
+.trust::-webkit-scrollbar{display:none}
+.tc{background:#fff;border:2px solid #d0eed0;border-radius:10px;padding:12px 16px;min-width:140px;flex-shrink:0;text-align:center}
+.tc .ico{font-size:20px;margin-bottom:4px}
+.tc h4{font-size:12px;font-weight:800;color:#1a3a1a;margin-bottom:2px}
+.tc p{font-size:10px;color:#6a8a6a}
 
-/* Services: big text list, editorial */
-.services{padding:56px 24px;background:#fff;border-top:1px solid #e0eed8}
-.services-header{margin-bottom:36px;text-align:center}
-.sec-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#4a7c3f;margin-bottom:10px}
-.services-header h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#1a3a1a;line-height:1.1}
+/* SERVICES - editorial list */
+.services{padding:40px 20px;background:#fff}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#4a7c3f}
+.sec-h{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:#1a3a1a;margin:6px 0 6px}
+.sec-sub{font-size:13px;color:#888;margin-bottom:24px}
 .svc-list{display:flex;flex-direction:column}
-.svc-item{padding:22px 0;border-top:1px solid #e8f5e8;display:flex;align-items:flex-start;gap:16px}
+.svc-item{padding:18px 0;border-top:1px solid #e8f5e8;display:flex;align-items:flex-start;gap:14px}
 .svc-item:last-child{border-bottom:1px solid #e8f5e8}
-.svc-leaf{width:36px;height:36px;background:#e8f5e8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px}
-.svc-item h3{font-family:'Playfair Display',serif;font-size:20px;color:#1a3a1a;margin-bottom:4px}
-.svc-item p{font-size:13px;color:#6a8a6a;line-height:1.65}
+.svc-leaf{width:38px;height:38px;background:#e8f5e8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px}
+.svc-item h3{font-family:'Playfair Display',serif;font-size:18px;color:#1a3a1a;margin-bottom:3px}
+.svc-item p{font-size:13px;color:#6a8a6a;line-height:1.6}
 
-/* Seasonal promo - handsome card */
-.promo{margin:0 20px 40px;border-radius:20px;background:linear-gradient(135deg,#1a3a1a,#2d5a2d);padding:36px 24px;text-align:center}
-.promo h2{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:12px}
+/* OUR WORK */
+.work{padding:40px 0 40px 20px;background:#f4faf4}
+.work-scroll{display:flex;overflow-x:auto;gap:12px;margin-top:18px;padding-right:20px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.wc{min-width:220px;height:160px;border-radius:14px;overflow:hidden;flex-shrink:0;position:relative}
+.wc img{width:100%;height:100%;object-fit:cover}
+.wc-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(26,58,26,.85));padding:10px;color:#a8e88a;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* PROMO */
+.promo{margin:0;background:linear-gradient(135deg,#1a3a1a,#2d5a2d);padding:40px 20px;text-align:center}
+.promo h2{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:12px;line-height:1.2}
 .promo h2 span{color:#76c442;font-style:italic}
-.promo p{font-size:14px;color:#90b890;line-height:1.7;margin-bottom:24px}
+.promo p{font-size:14px;color:#90b890;line-height:1.7;margin-bottom:22px}
 .promo a{background:#76c442;color:#000;padding:14px 28px;border-radius:50px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block}
 
-/* Social proof row */
-.proof{padding:44px 24px;background:#f9fbf5;text-align:center}
-.proof h2{font-family:'Playfair Display',serif;font-size:32px;color:#1a3a1a;margin-bottom:28px}
-.proof-nums{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.pn{background:#fff;border:2px solid #d8eed8;border-radius:16px;padding:24px 16px;text-align:center}
-.pn .val{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#4a7c3f;line-height:1}
-.pn .lbl{font-size:12px;color:#5a7a5a;margin-top:6px;font-weight:600}
+/* STATS */
+.stats{padding:32px 20px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.st{background:#f4faf4;border:2px solid #d0eed0;border-radius:14px;padding:20px;text-align:center}
+.st .val{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#4a7c3f;line-height:1}
+.st .lbl{font-size:11px;color:#6a8a6a;margin-top:4px;font-weight:600}
 
-/* Sticky bottom bar on mobile */
-.bottom-cta{position:fixed;bottom:0;left:0;right:0;background:#4a7c3f;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.15)}
-.bottom-cta p{font-size:13px;color:rgba(255,255,255,.8);font-weight:600}
-.bottom-cta a{background:#fff;color:#4a7c3f;padding:10px 20px;border-radius:50px;font-weight:900;font-size:14px;text-decoration:none;white-space:nowrap}
-.page-pad{padding-bottom:70px}
+/* STICKY BOTTOM BAR */
+.bot{position:fixed;bottom:0;left:0;right:0;background:#4a7c3f;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;z-index:200;box-shadow:0 -4px 16px rgba(74,124,63,.3)}
+.bot p{font-size:13px;color:rgba(255,255,255,.85);font-weight:600}
+.bot a{background:#fff;color:#4a7c3f;padding:9px 18px;border-radius:50px;font-weight:900;font-size:13px;text-decoration:none;white-space:nowrap}
+.pb{padding-bottom:60px}
 
 @media(min-width:700px){
-  .hero{padding:80px 40px 0}
-  .hero h1{font-size:76px}
-  .img-strip{height:320px}
-  .services{padding:72px 40px}
-  .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
-  .svc-item:nth-child(4){border-bottom:none}
-  .svc-item:nth-child(5){border-bottom:1px solid #e8f5e8}
-  .promo{margin:0 40px 56px;padding:52px 40px}
-  .promo h2{font-size:44px}
-  .proof{padding:64px 40px}
-  .proof-nums{grid-template-columns:repeat(4,1fr)}
-  .bottom-cta{display:none}
-  .page-pad{padding-bottom:0}
+  .hero{height:520px;max-height:620px}
+  .hero h1{font-size:70px}
+  .hero-btns{flex-direction:row;max-width:none}
+  .hero-btn-main,.hero-btn-sub{display:inline-block;padding:15px 28px}
+  .services{padding:60px 40px}
+  .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .work{padding:60px 0 60px 40px}
+  .promo{padding:60px 40px}
+  .stats{grid-template-columns:repeat(4,1fr);padding:40px}
+  .bot{display:none}
+  .pb{padding-bottom:0}
 }
 </style>
 </head>
-<body class="page-pad">
+<body class="pb">
 
-<div class="sticky-bar">
-  <div class="s-logo">🌿 Green<span>Scape</span></div>
-  <a href="tel:6015550505" class="s-phone">Get Free Quote</a>
+<div class="nav">
+  <div class="logo">🌿 Green<span>Scape</span> Pros</div>
+  <a href="tel:6015550505" class="nav-btn">📞 Free Quote</a>
 </div>
 
 <div class="hero">
-  <div class="hero-eyebrow">Serving Jackson, MS &amp; Surrounding Areas</div>
-  <h1>The Nicest<br/><span class="italic">Lawn on the Block.</span></h1>
-  <div class="hero-rule"></div>
-  <p>Professional lawn care and landscaping that transforms your outdoor space — weekly maintenance, full design, or one-time cleanup.</p>
-  <a href="tel:6015550505" class="hero-action">🌿 Get a Free Estimate</a>
-  <div class="img-strip">
-    <div class="img-pane">🌳</div>
-    <div class="img-pane">🌺</div>
-    <div class="img-pane">✂️</div>
+  <!-- Landscaping-specific: lawn mowing, green gardens, flower beds, irrigation -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/1453499/pexels-photo-1453499.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/1059823/pexels-photo-1059823.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/1558904541-efa843a96f01/pexels-photo-1558904541.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌱 Serving Jackson MS &amp; Surrounding Areas</div>
+    <h1>The Nicest Lawn<em>On The Block.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Weekly cuts, full landscape design, or one-time cleanups — your yard, done right.</p>
+    <div class="hero-btns">
+      <a href="tel:6015550505" class="hero-btn-main">🌿 Free Estimate</a>
+      <a href="#services" class="hero-btn-sub">See Services</a>
+    </div>
+  </div>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
+<div class="trust">
+  <div class="tc"><div class="ico">✂️</div><h4>Weekly Cuts</h4><p>Consistent schedule</p></div>
+  <div class="tc"><div class="ico">🌺</div><h4>Full Design</h4><p>Beds, mulch, stone</p></div>
+  <div class="tc"><div class="ico">💧</div><h4>Irrigation</h4><p>Install &amp; repair</p></div>
+  <div class="tc"><div class="ico">🍂</div><h4>Cleanups</h4><p>Any season</p></div>
+  <div class="tc"><div class="ico">⭐</div><h4>4.9 Stars</h4><p>600+ clients</p></div>
+</div>
+
 <div class="services" id="services">
-  <div class="services-header">
-    <div class="sec-eyebrow">What We Offer</div>
-    <h2>Full-Service<br/>Landscaping</h2>
-  </div>
+  <div class="sec-tag">What We Offer</div>
+  <div class="sec-h">Full-Service Landscaping</div>
+  <p class="sec-sub">From weekly maintenance to complete yard transformations</p>
   <div class="svc-list">
-    <div class="svc-item"><div class="svc-leaf">✂️</div><div><h3>Lawn Mowing</h3><p>Weekly or bi-weekly cuts with crisp edging on every single visit — no skipped lines, no shortcuts.</p></div></div>
-    <div class="svc-item"><div class="svc-leaf">🌺</div><div><h3>Landscape Design</h3><p>Flower beds, shrubs, mulch, and stone — custom designed and fully installed by our team.</p></div></div>
-    <div class="svc-item"><div class="svc-leaf">🌳</div><div><h3>Tree Trimming</h3><p>Proper pruning keeps trees healthy and your property looking sharp year-round.</p></div></div>
-    <div class="svc-item"><div class="svc-leaf">💧</div><div><h3>Irrigation</h3><p>Sprinkler installation, repair, and seasonal winterization — save water, stay green.</p></div></div>
-    <div class="svc-item"><div class="svc-leaf">🍂</div><div><h3>Leaf &amp; Debris Removal</h3><p>Fall cleanups, leaf blowing, and hauling — any season, any mess.</p></div></div>
-    <div class="svc-item"><div class="svc-leaf">🏡</div><div><h3>Sod Installation</h3><p>Fresh sod for instant curb appeal — new construction or full replacement.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">✂️</div><div><h3>Lawn Mowing</h3><p>Weekly or bi-weekly cuts with crisp edging on every single visit.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">🌺</div><div><h3>Landscape Design</h3><p>Flower beds, shrubs, mulch, and decorative stone — fully installed.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">🌳</div><div><h3>Tree Trimming</h3><p>Proper pruning to keep your trees healthy and your property looking sharp.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">💧</div><div><h3>Irrigation Systems</h3><p>Sprinkler install, repair, and winterization — save water, stay green.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">🍂</div><div><h3>Leaf &amp; Debris Removal</h3><p>Fall cleanups, leaf blowing, and hauling — any season, any size yard.</p></div></div>
+    <div class="svc-item"><div class="svc-leaf">🏡</div><div><h3>Sod Installation</h3><p>Fresh sod for instant curb appeal — new build or full replacement.</p></div></div>
+  </div>
+</div>
+
+<div class="work">
+  <div class="sec-tag" style="padding-right:20px">Our Work</div>
+  <div class="sec-h" style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#1a3a1a;padding-right:20px;margin:6px 0 0">Recent Yards</div>
+  <div class="work-scroll">
+    <div class="wc"><img src="https://images.pexels.com/photos/1453499/pexels-photo-1453499.jpeg?auto=compress&w=500" alt="Lawn mowing"/><div class="wc-lbl">Weekly Mowing</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/4246120/pexels-photo-4246120.jpeg?auto=compress&w=500" alt="Garden design"/><div class="wc-lbl">Garden Design</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/1059823/pexels-photo-1059823.jpeg?auto=compress&w=500" alt="Landscape beds"/><div class="wc-lbl">Landscape Beds</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&w=500" alt="Sod install"/><div class="wc-lbl">Sod Install</div></div>
   </div>
 </div>
 
 <div class="promo">
   <h2>Transform Your Yard<br/><span>This Season</span></h2>
-  <p>Free walkthrough &amp; quote within 24 hours. No contracts, no pressure — just honest work at a fair price.</p>
+  <p>Free property walkthrough and quote within 24 hours. No contracts, no pressure — just honest work at a fair price.</p>
   <a href="tel:6015550505">🌿 Schedule Free Walkthrough</a>
 </div>
 
-<div class="proof">
-  <h2>Trusted by 600+ Homeowners</h2>
-  <div class="proof-nums">
-    <div class="pn"><div class="val">4.9★</div><div class="lbl">Google Rating</div></div>
-    <div class="pn"><div class="val">600+</div><div class="lbl">Happy Clients</div></div>
-    <div class="pn"><div class="val">12yr</div><div class="lbl">In Business</div></div>
-    <div class="pn"><div class="val">100%</div><div class="lbl">Guaranteed</div></div>
-  </div>
+<div class="stats">
+  <div class="st"><div class="val">4.9★</div><div class="lbl">Google Rating</div></div>
+  <div class="st"><div class="val">600+</div><div class="lbl">Happy Clients</div></div>
+  <div class="st"><div class="val">12yr</div><div class="lbl">In Business</div></div>
+  <div class="st"><div class="val">100%</div><div class="lbl">Guaranteed</div></div>
 </div>
 
-<div class="bottom-cta">
+<div class="bot">
   <p>Free estimate · No contracts</p>
   <a href="tel:6015550505">📞 Call Now</a>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length)},4500);
+</script>
 </body>
 </html>
