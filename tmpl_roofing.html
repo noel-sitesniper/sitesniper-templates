@@ -25,7 +25,7 @@ body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 .hero h1{font-family:'Oswald',sans-serif;font-size:48px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:10px}
 .hero h1 em{color:#e74c3c;font-style:normal;display:block}
 .hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.6}
-.hero-btn{background:#e74c3c;color:#fff;padding:14px 24px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block}
+.hero-btn{background:#e74c3c;color:#fff;padding:14px 24px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:block;text-align:center;width:100%;box-sizing:border-box}
 .dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
 .dot.on{background:#e74c3c}
@@ -33,7 +33,7 @@ body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 /* PROOF STRIP */
 .proof{padding:16px 0 16px 16px;background:#fdf5f5;display:flex;overflow-x:auto;gap:10px;scrollbar-width:none}
 .proof::-webkit-scrollbar{display:none}
-.proof-card{background:#fff;border:2px solid #f5dada;border-radius:12px;padding:16px;min-width:150px;flex-shrink:0;text-align:center}
+.proof-card{background:#fff;border:2px solid #f5dada;border-radius:12px;padding:14px 12px;min-width:130px;flex-shrink:0;text-align:center}
 .proof-card .icon{font-size:24px;margin-bottom:6px}
 .proof-card h3{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:#1a0505;margin-bottom:2px}
 .proof-card p{font-size:11px;color:#888}
@@ -80,8 +80,8 @@ body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 @media(min-width:700px){
   .hero{height:500px;max-height:600px}
   .hero h1{font-size:72px}
-  .proof{flex-wrap:wrap;padding:24px 40px}
-  .proof-card{flex:1;min-width:0}
+  .proof{flex-wrap:nowrap;padding:24px 40px}
+  .proof-card{flex:1;min-width:120px}
   .services{padding:60px 40px}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
   .work{padding:60px 0 60px 40px}
@@ -121,7 +121,7 @@ body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 <div class="proof">
   <div class="proof-card"><div class="icon">🏠</div><h3>500+</h3><p>Roofs Replaced</p></div>
   <div class="proof-card"><div class="icon">⭐</div><h3>4.9</h3><p>Google Stars</p></div>
-  <div class="proof-card"><div class="icon">🛡️</div><h3>Life</h3><p>time Warranty</p></div>
+  <div class="proof-card"><div class="icon">🛡️</div><h3>Life</h3><p>Warranty</p></div>
   <div class="proof-card"><div class="icon">⚡</div><h3>24hr</h3><p>Emergency Tarp</p></div>
 </div>
 
