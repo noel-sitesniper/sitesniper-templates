@@ -9,64 +9,74 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden}
 
-/* LAYOUT: Split-screen sticky sidebar style */
-.top-bar{background:#0a1628;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
-.logo{color:#fff;font-size:16px;font-weight:900}.logo span{color:#d4a017}
-.top-phone{color:#d4a017;font-weight:800;font-size:14px;text-decoration:none}
+/* NAV */
+.top-bar{background:#0a1628;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{color:#fff;font-size:15px;font-weight:900;white-space:nowrap;flex-shrink:0}.logo span{color:#d4a017}
+.top-phone{background:#d4a017;color:#000;font-weight:900;font-size:13px;text-decoration:none;padding:8px 14px;border-radius:6px;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Big number hero - left aligned with accent line */
-.hero{padding:44px 20px 36px;background:#fff;border-bottom:4px solid #d4a017}
-.hero-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017;margin-bottom:12px}
-.hero h1{font-size:48px;font-weight:900;line-height:.95;color:#0a1628;margin-bottom:20px}
-.hero h1 .accent{display:block;font-size:64px;color:#d4a017}
-.hero-body{display:flex;flex-direction:column;gap:20px}
-.hero-desc{font-size:15px;color:#555;line-height:1.7;max-width:420px}
-.hero-cta-block{background:#0a1628;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px}
-.hero-cta-block p{color:#aaa;font-size:13px}
-.cta-main{background:#d4a017;color:#000;padding:14px 20px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;text-align:center;display:block}
-.cta-sub{color:#aaa;font-size:12px;text-align:center}
+/* HERO CAROUSEL */
+.hero{position:relative;height:88vw;max-height:520px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.2s ease;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,20,50,.55) 0%,rgba(5,20,50,.8) 100%)}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;z-index:2}
+.hero-kicker{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017;margin-bottom:10px}
+.hero h1{font-size:40px;font-weight:900;line-height:.95;color:#fff;margin-bottom:8px}
+.hero h1 .accent{display:block;color:#d4a017}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:20px;line-height:1.6}
+.hero-btn{background:#d4a017;color:#000;padding:14px 24px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#d4a017}
 
-/* Horizontal scrolling trust strip */
-.trust-strip{display:flex;overflow-x:auto;gap:12px;padding:20px;background:#f5f7ff;scrollbar-width:none}
+/* TRUST STRIP */
+.trust-strip{display:flex;overflow-x:auto;gap:10px;padding:16px;background:#f5f7ff;scrollbar-width:none}
 .trust-strip::-webkit-scrollbar{display:none}
-.trust-chip{background:#fff;border:2px solid #e0e8f8;border-radius:12px;padding:16px 20px;min-width:160px;flex-shrink:0;text-align:center}
-.trust-chip .ico{font-size:24px;margin-bottom:6px}
-.trust-chip h4{font-size:13px;font-weight:800;color:#0a1628;margin-bottom:3px}
+.trust-chip{background:#fff;border:2px solid #e0e8f8;border-radius:10px;padding:14px 16px;min-width:140px;flex-shrink:0;text-align:center}
+.trust-chip .ico{font-size:22px;margin-bottom:4px}
+.trust-chip h4{font-size:12px;font-weight:800;color:#0a1628;margin-bottom:2px}
 .trust-chip p{font-size:11px;color:#888}
 
-/* Services - big list with dividers */
-.services{padding:44px 20px}
-.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017}
-.sec-h{font-size:32px;font-weight:900;color:#0a1628;margin:8px 0 28px}
-.svc-item{border-top:1px solid #eee;padding:20px 0;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+/* SERVICES */
+.services{padding:40px 20px}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017}
+.sec-h{font-size:30px;font-weight:900;color:#0a1628;margin:6px 0 24px}
+.svc-item{border-top:1px solid #eee;padding:18px 0;display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start}
 .svc-item:last-child{border-bottom:1px solid #eee}
-.svc-num{font-size:28px;font-weight:900;color:#d4a017;opacity:.4;line-height:1;font-variant-numeric:tabular-nums}
-.svc-txt h3{font-size:16px;font-weight:800;color:#0a1628;margin-bottom:4px}
+.svc-num{font-size:24px;font-weight:900;color:#d4a017;opacity:.4;line-height:1}
+.svc-txt h3{font-size:15px;font-weight:800;color:#0a1628;margin-bottom:4px}
 .svc-txt p{font-size:13px;color:#777;line-height:1.6}
 
-/* Emergency banner */
-.emergency{background:#d4a017;padding:28px 20px;text-align:center}
-.emergency h2{font-size:26px;font-weight:900;color:#000;margin-bottom:6px}
-.emergency p{font-size:14px;color:rgba(0,0,0,.65);margin-bottom:18px}
-.emergency a{background:#000;color:#d4a017;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block}
+/* OUR WORK CAROUSEL */
+.work{padding:40px 20px;background:#fafafa}
+.work-scroll{display:flex;overflow-x:auto;gap:14px;margin-top:20px;padding-bottom:4px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.work-card{min-width:240px;height:160px;border-radius:14px;overflow:hidden;flex-shrink:0;position:relative}
+.work-card img{width:100%;height:100%;object-fit:cover}
+.work-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:12px;color:#fff;font-size:12px;font-weight:700}
 
-/* Reviews */
-.reviews{padding:44px 20px;background:#fafafa}
-.review-scroll{display:flex;overflow-x:auto;gap:14px;padding-bottom:4px;scrollbar-width:none;margin-top:24px}
-.review-scroll::-webkit-scrollbar{display:none}
-.review-card{background:#fff;border:2px solid #eee;border-radius:14px;padding:20px;min-width:260px;flex-shrink:0}
-.stars{color:#d4a017;font-size:14px;margin-bottom:10px}
-.review-card p{font-size:13px;color:#444;line-height:1.65;margin-bottom:12px}
-.reviewer{font-size:12px;font-weight:700;color:#888}
+/* CTA */
+.cta{background:#d4a017;padding:40px 20px;text-align:center}
+.cta h2{font-size:26px;font-weight:900;color:#000;margin-bottom:8px}
+.cta p{font-size:14px;color:rgba(0,0,0,.6);margin-bottom:20px}
+.cta a{background:#000;color:#d4a017;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block}
+
+/* REVIEWS */
+.reviews{padding:40px 20px}
+.rv-scroll{display:flex;overflow-x:auto;gap:14px;margin-top:20px;scrollbar-width:none}
+.rv-scroll::-webkit-scrollbar{display:none}
+.rv{background:#fff;border:2px solid #eee;border-radius:14px;padding:18px;min-width:260px;flex-shrink:0}
+.rv .stars{color:#d4a017;font-size:13px;margin-bottom:8px}
+.rv p{font-size:13px;color:#444;line-height:1.65;font-style:italic;margin-bottom:10px}
+.rv .auth{font-size:11px;font-weight:700;color:#888}
 
 @media(min-width:700px){
-  .hero{padding:60px 40px;display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center}
-  .hero h1{font-size:64px}.hero h1 .accent{font-size:88px}
-  .hero-body{flex-direction:row;align-items:flex-start}
+  .hero{height:500px;max-height:600px}
+  .hero h1{font-size:60px}
   .services{padding:60px 40px}
-  .emergency{padding:48px 40px}
+  .work{padding:60px 40px}
+  .cta{padding:60px 40px}
   .reviews{padding:60px 40px}
-  .trust-strip{padding:24px 40px}
 }
 </style>
 </head>
@@ -74,56 +84,80 @@ body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hid
 
 <div class="top-bar">
   <div class="logo">🔧 Delta <span>Plumbing</span></div>
-  <a href="tel:6015550101" class="top-phone">📞 (601) 555-0101</a>
+  <a href="tel:6015550101" class="top-phone">📞 Call Now</a>
 </div>
 
 <div class="hero">
-  <div>
+  <!-- Plumbing-specific: pipes, under-sink, water heater, bathroom fixtures -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/3637834/pexels-photo-3637834.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/1909802/pexels-photo-1909802.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
     <div class="hero-kicker">Jackson, MS · Licensed &amp; Insured</div>
-    <h1>Pipe Down.<span class="accent">We Got</span>This.</h1>
-    <p class="hero-desc">From burst pipes to full bathroom remodels — we show up fast, fix it right, and stand behind every job with a 100% satisfaction guarantee.</p>
+    <h1>Pipe Down.<span class="accent">We Got This.</span></h1>
+    <p class="hero-sub">Fast, honest plumbing service — same day, flat-rate pricing, 100% guaranteed.</p>
+    <a href="tel:6015550101" class="hero-btn">📞 Free Estimate</a>
   </div>
-  <div class="hero-cta-block">
-    <p>🕐 Same-day appointments available</p>
-    <a href="tel:6015550101" class="cta-main">📞 Get a Free Estimate</a>
-    <span class="cta-sub">⭐⭐⭐⭐⭐ 4.9 · 120+ Reviews</span>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0,this)"></div>
+    <div class="dot" onclick="goSlide(1,this)"></div>
+    <div class="dot" onclick="goSlide(2,this)"></div>
+    <div class="dot" onclick="goSlide(3,this)"></div>
   </div>
 </div>
 
 <div class="trust-strip">
-  <div class="trust-chip"><div class="ico">⚡</div><h4>Same-Day</h4><p>Most jobs done today</p></div>
-  <div class="trust-chip"><div class="ico">🔒</div><h4>Licensed</h4><p>State certified techs</p></div>
-  <div class="trust-chip"><div class="ico">💰</div><h4>Flat Pricing</h4><p>Price before we start</p></div>
+  <div class="trust-chip"><div class="ico">⚡</div><h4>Same-Day</h4><p>Most jobs today</p></div>
+  <div class="trust-chip"><div class="ico">🔒</div><h4>Licensed</h4><p>State certified</p></div>
+  <div class="trust-chip"><div class="ico">💰</div><h4>Flat Price</h4><p>No surprises</p></div>
   <div class="trust-chip"><div class="ico">📞</div><h4>24/7 Emergency</h4><p>Always available</p></div>
-  <div class="trust-chip"><div class="ico">✅</div><h4>Guaranteed</h4><p>100% satisfaction</p></div>
+  <div class="trust-chip"><div class="ico">⭐</div><h4>4.9 Stars</h4><p>120+ reviews</p></div>
 </div>
 
-<div class="services" id="services">
+<div class="services">
   <div class="sec-tag">What We Handle</div>
   <div class="sec-h">Our Services</div>
-  <div class="svc-item"><div class="svc-num">01</div><div class="svc-txt"><h3>Drain Cleaning</h3><p>Hydro-jetting and snake service for slow or completely blocked drains — same day.</p></div></div>
-  <div class="svc-item"><div class="svc-num">02</div><div class="svc-txt"><h3>Water Heater Repair &amp; Install</h3><p>Tank and tankless water heater service, including full replacements with warranty.</p></div></div>
+  <div class="svc-item"><div class="svc-num">01</div><div class="svc-txt"><h3>Drain Cleaning</h3><p>Hydro-jetting and snake service for clogged or slow drains — cleared same day.</p></div></div>
+  <div class="svc-item"><div class="svc-num">02</div><div class="svc-txt"><h3>Water Heater Repair &amp; Install</h3><p>Tank and tankless service, same-day replacements with full warranty.</p></div></div>
   <div class="svc-item"><div class="svc-num">03</div><div class="svc-txt"><h3>Leak Detection &amp; Pipe Repair</h3><p>Burst pipes, slab leaks, pinhole leaks — found fast and fixed for good.</p></div></div>
-  <div class="svc-item"><div class="svc-num">04</div><div class="svc-txt"><h3>Bathroom &amp; Kitchen Remodels</h3><p>Full plumbing rough-in, fixture installation, and finish work for any remodel.</p></div></div>
-  <div class="svc-item"><div class="svc-num">05</div><div class="svc-txt"><h3>Sewer Line Services</h3><p>Camera inspection, hydro-jetting, trenchless repair, and full replacement.</p></div></div>
-  <div class="svc-item"><div class="svc-num">06</div><div class="svc-txt"><h3>Water Filtration</h3><p>Whole-home water softeners and filtration systems — installed and maintained.</p></div></div>
+  <div class="svc-item"><div class="svc-num">04</div><div class="svc-txt"><h3>Bathroom &amp; Kitchen Plumbing</h3><p>Full rough-in, fixture install, and finish work for any remodel.</p></div></div>
+  <div class="svc-item"><div class="svc-num">05</div><div class="svc-txt"><h3>Sewer Line Services</h3><p>Camera inspection, hydro-jetting, trenchless repair and replacement.</p></div></div>
+  <div class="svc-item"><div class="svc-num">06</div><div class="svc-txt"><h3>Water Filtration</h3><p>Whole-home softeners and filtration systems — installed and maintained.</p></div></div>
 </div>
 
-<div class="emergency">
+<div class="work">
+  <div class="sec-tag">Our Work</div>
+  <div class="sec-h">Recent Jobs</div>
+  <div class="work-scroll">
+    <div class="work-card"><img src="https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?auto=compress&w=500" alt="Pipe repair"/><div class="work-label">Pipe Repair</div></div>
+    <div class="work-card"><img src="https://images.pexels.com/photos/3637834/pexels-photo-3637834.jpeg?auto=compress&w=500" alt="Drain service"/><div class="work-label">Drain Service</div></div>
+    <div class="work-card"><img src="https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&w=500" alt="Water heater install"/><div class="work-label">Water Heater Install</div></div>
+    <div class="work-card"><img src="https://images.pexels.com/photos/1909802/pexels-photo-1909802.jpeg?auto=compress&w=500" alt="Bathroom plumbing"/><div class="work-label">Bathroom Remodel</div></div>
+  </div>
+</div>
+
+<div class="cta">
   <h2>Plumbing Emergency?</h2>
-  <p>We answer the phone 24/7. No extra charge for after-hours service calls.</p>
+  <p>We answer 24/7. No extra charge for after-hours calls.</p>
   <a href="tel:6015550101">📞 Call Right Now</a>
 </div>
 
 <div class="reviews">
   <div class="sec-tag">What People Say</div>
-  <div class="sec-h" style="font-size:28px;font-weight:900;color:#0a1628;margin:8px 0 0">Real Reviews</div>
-  <div class="review-scroll">
-    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Showed up within an hour of calling. Fixed my burst pipe and even cleaned up the mess. Absolute lifesavers."</p><div class="reviewer">— Marcus T., Jackson MS</div></div>
-    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Flat-rate pricing means no surprise bill at the end. That alone makes them my plumber for life."</p><div class="reviewer">— Sandra K., Brandon MS</div></div>
-    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Installed a new water heater in under 2 hours. Professional, fast, and reasonably priced."</p><div class="reviewer">— James R., Ridgeland MS</div></div>
+  <div class="sec-h">Real Reviews</div>
+  <div class="rv-scroll">
+    <div class="rv"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Showed up in under an hour, fixed my burst pipe and cleaned everything up. Lifesavers."</p><div class="auth">— Marcus T., Jackson MS</div></div>
+    <div class="rv"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Flat-rate pricing with no surprise bills at the end. That alone makes them my plumber for life."</p><div class="auth">— Sandra K., Brandon MS</div></div>
+    <div class="rv"><div class="stars">⭐⭐⭐⭐⭐</div><p>"New water heater installed in under 2 hours. Professional, fast, fair price."</p><div class="auth">— James R., Ridgeland MS</div></div>
   </div>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n,d){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length,dots[(cur+1)%slides.length])},4000);
+</script>
 </body>
 </html>
