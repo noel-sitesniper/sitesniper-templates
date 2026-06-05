@@ -9,149 +9,174 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-/* LAYOUT: Warning-style alert hero → pest grid → plans table → guarantee */
-.alert-bar{background:#76c442;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
-.alert-bar span{font-size:12px;font-weight:800;color:#000}
-.alert-bar a{background:#000;color:#76c442;padding:7px 14px;border-radius:6px;font-weight:900;font-size:12px;text-decoration:none}
+/* NAV - alert style, one row */
+.nav{background:#0a1a0a;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.nav-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.nav-alert{font-size:12px;color:rgba(255,255,255,.8);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-btn{background:#76c442;color:#000;padding:9px 14px;border-radius:6px;font-weight:900;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Hero: dark warning style */
-.hero{background:#0a1a0a;padding:44px 20px 36px;position:relative;overflow:hidden}
-.hero-corner{position:absolute;top:0;right:0;width:120px;height:120px;background:rgba(118,196,66,.06);border-radius:0 0 0 120px}
-.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(118,196,66,.12);border:1px solid rgba(118,196,66,.3);color:#76c442;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:6px;margin-bottom:20px}
-.hero h1{font-family:'Rajdhani',sans-serif;font-size:56px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:16px}
-.hero h1 span{color:#76c442}
-.hero p{font-size:15px;color:#6a9a6a;line-height:1.75;margin-bottom:28px;max-width:400px}
-.hero-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
-.btn-g{background:#76c442;color:#000;padding:15px 20px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;text-transform:uppercase}
-.btn-ghost{border:1px solid #2a4a2a;color:#76c442;padding:13px 20px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;display:block;text-align:center}
+/* HERO CAROUSEL */
+.hero{position:relative;height:88vw;max-height:520px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.2s;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,26,10,.5),rgba(10,26,10,.92))}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(118,196,66,.12);border:1px solid rgba(118,196,66,.3);color:#76c442;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:5px 12px;border-radius:6px;margin-bottom:12px;width:fit-content}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:52px;font-weight:700;text-transform:uppercase;color:#fff;line-height:.92;margin-bottom:12px}
+.hero h1 span{color:#76c442;display:block}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);line-height:1.65;margin-bottom:20px;max-width:380px}
+.hero-btns{display:flex;gap:10px}
+.hero-btn{background:#76c442;color:#000;padding:14px 22px;border-radius:8px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block;text-transform:uppercase}
+.hero-btn2{border:1px solid #2a4a2a;color:#76c442;padding:13px 18px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#76c442}
 
-/* Pest grid: what we kill */
-.pest-grid-section{background:#0f2a0f;padding:36px 20px}
-.pg-title{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:20px;text-align:center}
-.pest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.pest-item{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:12px;padding:16px 8px;text-align:center}
-.pest-item .ico{font-size:26px;display:block;margin-bottom:6px}
-.pest-item span{font-size:11px;font-weight:700;color:#8aba8a;display:block}
-.pest-item.dead{border-color:rgba(118,196,66,.3)}
-.pest-item.dead span{color:#76c442}
+/* PEST GRID */
+.pest-section{background:#0f2a0f;padding:28px 20px}
+.pest-title{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:16px;text-align:center}
+.pest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pi{background:#0a1a0a;border:1px solid #1a3a1a;border-radius:10px;padding:12px 6px;text-align:center}
+.pi .ico{font-size:22px;display:block;margin-bottom:4px}
+.pi span{font-size:10px;font-weight:700;color:#76c442;display:block}
 
-/* Stats */
-.stats-row{background:#76c442;display:grid;grid-template-columns:repeat(2,1fr)}
-.sr-stat{padding:22px 14px;text-align:center;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
-.sr-stat:nth-child(2){border-right:none}
-.sr-stat:nth-child(3){border-bottom:none}
-.sr-stat:nth-child(4){border-right:none;border-bottom:none}
-.sr-stat .n{font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;color:#000;line-height:1}
-.sr-stat .l{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.5);margin-top:3px}
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;background:#76c442}
+.st{padding:18px 12px;text-align:center;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
+.st:nth-child(2){border-right:none}.st:nth-child(3){border-bottom:none}.st:nth-child(4){border-right:none;border-bottom:none}
+.st .n{font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;color:#000;line-height:1}
+.st .l{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.5);margin-top:3px}
 
-/* Plans */
-.plans{padding:44px 20px;background:#fff}
-.plans-hdr{margin-bottom:28px}
-.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#76c442;margin-bottom:6px}
-.sec-h{font-family:'Rajdhani',sans-serif;font-size:40px;font-weight:700;text-transform:uppercase;color:#0a1a0a;margin-bottom:6px}
-.plan-cards{display:flex;flex-direction:column;gap:14px}
-.plan-card{border-radius:14px;padding:24px;border:2px solid #e8f5e8;display:flex;gap:16px;align-items:flex-start}
-.plan-card.featured{background:#0a1a0a;border-color:#76c442}
-.plan-ico{width:48px;height:48px;background:#e8f5e8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.plan-card.featured .plan-ico{background:#1a3a1a}
-.plan-card h3{font-size:16px;font-weight:800;color:#0a1a0a;margin-bottom:4px}
-.plan-card.featured h3{color:#76c442}
-.plan-card p{font-size:13px;color:#6a8a6a;line-height:1.6}
-.plan-card.featured p{color:#8aba8a}
-.plan-badge{display:inline-block;background:#76c442;color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:4px;margin-top:8px;text-transform:uppercase}
+/* PLANS */
+.plans{padding:40px 20px;background:#fff}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#76c442}
+.sec-h{font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;text-transform:uppercase;color:#0a1a0a;margin:6px 0 24px}
+.plan-cards{display:flex;flex-direction:column;gap:12px}
+.plan{border-radius:14px;padding:22px;border:2px solid #e8f5e8;display:flex;gap:14px;align-items:flex-start}
+.plan.feat{background:#0a1a0a;border-color:#76c442}
+.plan-ico{width:46px;height:46px;background:#e8f5e8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.plan.feat .plan-ico{background:#1a3a1a}
+.plan h3{font-size:15px;font-weight:800;color:#0a1a0a;margin-bottom:4px}
+.plan.feat h3{color:#76c442}
+.plan p{font-size:13px;color:#6a8a6a;line-height:1.6}
+.plan.feat p{color:#8aba8a}
+.plan-badge{display:inline-block;background:#76c442;color:#000;font-size:10px;font-weight:900;padding:3px 9px;border-radius:4px;margin-top:8px;text-transform:uppercase}
 
-/* Guarantee block */
-.guarantee{background:#0a1a0a;padding:44px 20px;text-align:center}
-.g-shield{font-size:64px;display:block;margin-bottom:20px}
-.guarantee h2{font-family:'Rajdhani',sans-serif;font-size:44px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:12px}
-.guarantee p{font-size:14px;color:#6a9a6a;line-height:1.75;max-width:380px;margin:0 auto 28px}
-.guarantee a{background:#76c442;color:#000;padding:15px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block;text-transform:uppercase}
+/* OUR WORK */
+.work{padding:40px 0 40px 20px;background:#0f1a0f}
+.work .sec-tag{color:#76c442;padding-right:20px}
+.work .sec-h{color:#fff;padding-right:20px}
+.work-scroll{display:flex;overflow-x:auto;gap:12px;margin-top:18px;padding-right:20px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.wc{min-width:200px;height:150px;border-radius:12px;overflow:hidden;flex-shrink:0;position:relative;border:2px solid #1a3a1a}
+.wc img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.wc-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.8));padding:10px;color:#76c442;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* GUARANTEE */
+.guarantee{background:#0a1a0a;padding:40px 20px;text-align:center}
+.g-shield{font-size:56px;display:block;margin-bottom:16px}
+.guarantee h2{font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;text-transform:uppercase;color:#76c442;margin-bottom:10px}
+.guarantee p{font-size:14px;color:#6a9a6a;line-height:1.75;max-width:360px;margin:0 auto 24px}
+.guarantee a{background:#76c442;color:#000;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;text-transform:uppercase}
 
 @media(min-width:700px){
-  .hero{padding:72px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .hero{height:500px;max-height:580px}
   .hero h1{font-size:80px}
-  .hero p{margin-bottom:0}
-  .hero-actions{flex-direction:row}
-  .btn-g,.btn-ghost{display:inline-block;padding:15px 28px}
-  .pest-grid-section{padding:48px 40px}
-  .pest-grid{grid-template-columns:repeat(4,1fr)}
-  .stats-row{grid-template-columns:repeat(4,1fr)}
-  .sr-stat{border-bottom:none}
-  .sr-stat:nth-child(2){border-right:1px solid rgba(0,0,0,.1)}
-  .sr-stat:nth-child(3){border-right:1px solid rgba(0,0,0,.1)}
-  .plans{padding:64px 40px}
-  .plan-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;flex-direction:row}
-  .guarantee{padding:64px 40px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .st{border-bottom:none}.st:nth-child(2){border-right:1px solid rgba(0,0,0,.1)}.st:nth-child(3){border-right:1px solid rgba(0,0,0,.1)}
+  .plans{padding:60px 40px}
+  .plan-cards{display:grid;grid-template-columns:repeat(3,1fr)}
+  .work{padding:60px 0 60px 40px}
+  .guarantee{padding:60px 40px}
 }
 </style>
 </head>
 <body>
 
-<div class="alert-bar">
-  <span>🚨 Bugs don't stand a chance. Call today — free inspection.</span>
-  <a href="tel:6015550404">📞 Call Now</a>
+<div class="nav">
+  <div class="nav-left">
+    <span class="nav-alert">🚨 Bugs don't stand a chance. Free inspection.</span>
+  </div>
+  <a href="tel:6015550404" class="nav-btn">📞 Call Now</a>
 </div>
 
 <div class="hero">
-  <div>
+  <!-- Pest control-specific: exterminator spraying, pest control tech, treatment -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/6246371/pexels-photo-6246371.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/6195129/pexels-photo-6195129.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
     <div class="hero-tag">🐛 Jackson's Pest Experts</div>
-    <h1>Your Home.<br/><span>Not Theirs.</span></h1>
-    <p>BugOut MS uses targeted treatments to eliminate insects and rodents — fast, safe for your family, and backed by our re-treatment guarantee.</p>
-    <div class="hero-actions">
-      <a href="tel:6015550404" class="btn-g">Free Inspection</a>
-      <a href="#plans" class="btn-ghost">View Plans</a>
+    <h1>Your Home.<span>Not Theirs.</span></h1>
+    <p class="hero-sub">Targeted treatments to eliminate insects and rodents — fast, kid-safe, backed by our re-treatment guarantee.</p>
+    <div class="hero-btns">
+      <a href="tel:6015550404" class="hero-btn">Free Inspection</a>
+      <a href="#plans" class="hero-btn2">View Plans</a>
     </div>
   </div>
-  <div style="background:#0f2a0f;border:1px solid #1a4a1a;border-radius:18px;padding:28px">
-    <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#76c442;margin-bottom:18px">Why BugOut?</p>
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Same-day or next-day service</div>
-      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Kid &amp; pet-safe treatments</div>
-      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Free re-treatment if bugs return</div>
-      <div style="display:flex;align-items:center;gap:12px;color:#8aba8a;font-size:14px;font-weight:600"><span style="color:#76c442;font-size:16px">✓</span> Locally owned — not a franchise</div>
-    </div>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
-<div class="pest-grid-section">
-  <div class="pg-title">Pests We Eliminate</div>
+<div class="pest-section">
+  <div class="pest-title">Pests We Eliminate</div>
   <div class="pest-grid">
-    <div class="pest-item dead"><span class="ico">🐜</span><span>Ants</span></div>
-    <div class="pest-item dead"><span class="ico">🪳</span><span>Roaches</span></div>
-    <div class="pest-item dead"><span class="ico">🕷️</span><span>Spiders</span></div>
-    <div class="pest-item dead"><span class="ico">🐀</span><span>Rodents</span></div>
-    <div class="pest-item dead"><span class="ico">🦟</span><span>Mosquitoes</span></div>
-    <div class="pest-item dead"><span class="ico">🐝</span><span>Wasps</span></div>
-    <div class="pest-item dead"><span class="ico">🪲</span><span>Termites</span></div>
-    <div class="pest-item dead"><span class="ico">🦗</span><span>Crickets</span></div>
+    <div class="pi"><span class="ico">🐜</span><span>Ants</span></div>
+    <div class="pi"><span class="ico">🪳</span><span>Roaches</span></div>
+    <div class="pi"><span class="ico">🕷️</span><span>Spiders</span></div>
+    <div class="pi"><span class="ico">🐀</span><span>Rodents</span></div>
+    <div class="pi"><span class="ico">🦟</span><span>Mosquitoes</span></div>
+    <div class="pi"><span class="ico">🐝</span><span>Wasps</span></div>
+    <div class="pi"><span class="ico">🪲</span><span>Termites</span></div>
+    <div class="pi"><span class="ico">🦗</span><span>Crickets</span></div>
   </div>
 </div>
 
-<div class="stats-row">
-  <div class="sr-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
-  <div class="sr-stat"><div class="n">1,200</div><div class="l">Homes Treated</div></div>
-  <div class="sr-stat"><div class="n">10yr</div><div class="l">In Business</div></div>
-  <div class="sr-stat"><div class="n">100%</div><div class="l">Guaranteed</div></div>
+<div class="stats">
+  <div class="st"><div class="n">4.9★</div><div class="l">Rating</div></div>
+  <div class="st"><div class="n">1,200</div><div class="l">Homes Treated</div></div>
+  <div class="st"><div class="n">10yr</div><div class="l">In Business</div></div>
+  <div class="st"><div class="n">100%</div><div class="l">Guaranteed</div></div>
 </div>
 
 <div class="plans" id="plans">
-  <div class="plans-hdr">
-    <div class="sec-tag">Protection Plans</div>
-    <div class="sec-h">How We Protect You</div>
-  </div>
+  <div class="sec-tag">Protection Plans</div>
+  <div class="sec-h">How We Protect You</div>
   <div class="plan-cards">
-    <div class="plan-card"><div class="plan-ico">🎯</div><div><h3>One-Time Treatment</h3><p>Targeted elimination of your specific pest problem — guaranteed or we return free.</p></div></div>
-    <div class="plan-card featured"><div class="plan-ico">🏠</div><div><h3>Quarterly Protection</h3><p>Four treatments per year keeping a protective barrier around your entire home year-round.</p><span class="plan-badge">Best Value</span></div></div>
-    <div class="plan-card"><div class="plan-ico">🦟</div><div><h3>Mosquito Control</h3><p>Monthly yard treatments March–October. Reclaim your backyard all summer long.</p></div></div>
+    <div class="plan"><div class="plan-ico">🎯</div><div><h3>One-Time Treatment</h3><p>Targeted elimination — guaranteed or we return free.</p></div></div>
+    <div class="plan feat"><div class="plan-ico">🏠</div><div><h3>Quarterly Protection</h3><p>Four treatments per year keeping a barrier around your entire home.</p><span class="plan-badge">Best Value</span></div></div>
+    <div class="plan"><div class="plan-ico">🦟</div><div><h3>Mosquito Control</h3><p>Monthly yard treatments March–October. Reclaim your backyard.</p></div></div>
+  </div>
+</div>
+
+<div class="work">
+  <div class="sec-tag">Our Work</div>
+  <div class="sec-h">In The Field</div>
+  <div class="work-scroll">
+    <div class="wc"><img src="https://images.pexels.com/photos/6246371/pexels-photo-6246371.jpeg?auto=compress&w=500" alt="Pest spray"/><div class="wc-lbl">Perimeter Treatment</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg?auto=compress&w=500" alt="Exterminator"/><div class="wc-lbl">Interior Treatment</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&w=500" alt="Rodent control"/><div class="wc-lbl">Rodent Exclusion</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/6195131/pexels-photo-6195131.jpeg?auto=compress&w=500" alt="Pest inspection"/><div class="wc-lbl">Pest Inspection</div></div>
   </div>
 </div>
 
 <div class="guarantee">
   <span class="g-shield">🛡️</span>
   <h2>The BugOut Guarantee</h2>
-  <p>If pests return between treatments, we come back and re-treat at absolutely zero cost to you. No fine print, no hassle.</p>
+  <p>If pests return between treatments, we come back and re-treat at zero cost to you. No fine print, no hassle.</p>
   <a href="tel:6015550404">📞 Free Inspection Today</a>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length)},4000);
+</script>
 </body>
 </html>
