@@ -9,145 +9,157 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-/* LAYOUT: Bright, breezy — top banner → centered hero → horizontal package cards → steps → reviews */
-.top-banner{background:#007a74;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
-.tb-left{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:#fff}
-.tb-left span{color:#c8fff0}
-.tb-right{color:rgba(255,255,255,.8);font-size:12px;font-weight:600}
-.tb-right strong{color:#fff}
+/* NAV */
+.nav{background:#007a74;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:'Nunito',sans-serif;font-size:17px;font-weight:900;color:#fff;white-space:nowrap;flex-shrink:0}
+.logo span{color:#c8fff0}
+.nav-btn{background:#fff;color:#007a74;padding:9px 14px;border-radius:8px;font-weight:900;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Centered hero with big emoji */
-.hero{padding:52px 24px 48px;background:linear-gradient(180deg,#e8faf8,#fff);text-align:center}
-.hero-emoji{font-size:72px;display:block;margin-bottom:20px;animation:sparkle 2s ease-in-out infinite}
-@keyframes sparkle{0%,100%{transform:scale(1) rotate(-5deg)}50%{transform:scale(1.1) rotate(5deg)}}
-.hero h1{font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;color:#007a74;line-height:1.05;margin-bottom:12px}
-.hero p{font-size:15px;color:#5a8a88;line-height:1.75;max-width:380px;margin:0 auto 28px}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:300px;margin:0 auto 32px}
-.btn-teal{background:#007a74;color:#fff;padding:16px;border-radius:12px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;font-family:'Nunito',sans-serif;box-shadow:0 8px 24px rgba(0,122,116,.25)}
-.hero-trust{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
-.trust-chip{font-size:12px;font-weight:700;color:#007a74;background:#e0f5f4;padding:6px 14px;border-radius:100px}
+/* HERO CAROUSEL */
+.hero{position:relative;height:88vw;max-height:520px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.2s;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,122,116,.5),rgba(0,58,55,.9))}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;z-index:2;text-align:center;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:100px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:'Nunito',sans-serif;font-size:40px;font-weight:900;color:#fff;line-height:1.05;margin-bottom:10px}
+.hero h1 em{color:#c8fff0;font-style:normal;display:block}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;max-width:340px;margin-bottom:20px}
+.hero-btn{background:#fff;color:#007a74;padding:14px 28px;border-radius:10px;font-weight:900;font-size:15px;text-decoration:none;display:inline-block;font-family:'Nunito',sans-serif}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#fff}
 
-/* Package cards - horizontal scroll */
-.packages{padding:44px 0 44px 20px;background:#fff}
-.packages-header{padding-right:20px;margin-bottom:20px}
-.sec-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#007a74;margin-bottom:6px}
-.sec-h{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38}
+/* TRUST CHIPS */
+.trust{display:flex;flex-wrap:wrap;gap:8px;padding:16px;background:#e6faf8;justify-content:center}
+.tc{font-size:12px;font-weight:700;color:#007a74;background:#fff;padding:7px 14px;border-radius:100px;border:2px solid #b0e8e4}
+
+/* PACKAGES */
+.pkgs{padding:40px 0 40px 20px}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#007a74}
+.sec-h{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38;margin:6px 0 6px}
+.sec-sub{font-size:13px;color:#888;margin-bottom:18px}
 .pkg-scroll{display:flex;overflow-x:auto;gap:14px;padding-right:20px;scrollbar-width:none}
 .pkg-scroll::-webkit-scrollbar{display:none}
-.pkg-card{min-width:240px;border-radius:18px;padding:28px 22px;flex-shrink:0;position:relative}
-.pkg-card.basic{background:#f0fafa;border:2px solid #d0f0ee}
-.pkg-card.popular{background:#007a74;color:#fff}
-.pkg-card.premium{background:#1a3a38;color:#fff}
-.pkg-badge{position:absolute;top:16px;right:16px;background:#f5c800;color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:100px;text-transform:uppercase}
-.pkg-icon{font-size:32px;margin-bottom:16px}
-.pkg-card h3{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;margin-bottom:6px}
-.pkg-card.basic h3{color:#1a3a38}
-.pkg-card h4{font-size:24px;font-weight:900;margin-bottom:14px}
-.pkg-card.basic h4{color:#007a74}
-.pkg-card.popular h4,.pkg-card.premium h4{color:#c8fff0}
-.pkg-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
-.pkg-features li{font-size:13px;display:flex;align-items:center;gap:8px}
-.pkg-card.basic .pkg-features li{color:#5a8a88}
-.pkg-card.popular .pkg-features li,.pkg-card.premium .pkg-features li{color:rgba(255,255,255,.8)}
-.pkg-features li::before{content:'✓';font-weight:900;color:#007a74;font-size:12px}
-.pkg-card.popular .pkg-features li::before,.pkg-card.premium .pkg-features li::before{color:#76eeda}
-.pkg-btn{display:block;text-align:center;padding:12px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;font-family:'Nunito',sans-serif}
-.pkg-card.basic .pkg-btn{background:#007a74;color:#fff}
-.pkg-card.popular .pkg-btn{background:#fff;color:#007a74}
-.pkg-card.premium .pkg-btn{background:#76c442;color:#000}
+.pkg{min-width:230px;border-radius:18px;padding:26px 20px;flex-shrink:0;position:relative}
+.pkg.basic{background:#f0fafa;border:2px solid #c0e8e5}
+.pkg.popular{background:#007a74;color:#fff}
+.pkg.premium{background:#1a3a38;color:#fff}
+.pkg-badge{position:absolute;top:14px;right:14px;background:#f5c800;color:#000;font-size:9px;font-weight:900;padding:3px 9px;border-radius:100px;text-transform:uppercase}
+.pkg-ico{font-size:28px;margin-bottom:12px}
+.pkg h3{font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;margin-bottom:4px}
+.pkg.basic h3{color:#1a3a38}.pkg h4{font-size:22px;font-weight:900;margin-bottom:12px}
+.pkg.basic h4{color:#007a74}.pkg.popular h4,.pkg.premium h4{color:#c8fff0}
+.pkg ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.pkg ul li{font-size:12px;display:flex;align-items:center;gap:7px}
+.pkg.basic ul li{color:#5a8a88}.pkg.popular ul li,.pkg.premium ul li{color:rgba(255,255,255,.85)}
+.pkg ul li::before{content:'✓';font-weight:900;flex-shrink:0}
+.pkg.basic ul li::before{color:#007a74}.pkg.popular ul li::before,.pkg.premium ul li::before{color:#76eeda}
+.pkg-btn{display:block;text-align:center;padding:11px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;font-family:'Nunito',sans-serif}
+.pkg.basic .pkg-btn{background:#007a74;color:#fff}
+.pkg.popular .pkg-btn{background:#fff;color:#007a74}
+.pkg.premium .pkg-btn{background:#76c442;color:#000}
 
-/* How it works */
-.how{padding:44px 24px;background:#f0fafa}
-.how-header{text-align:center;margin-bottom:32px}
-.how-header h2{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:#1a3a38}
-.steps{display:flex;flex-direction:column;gap:0}
-.step{display:flex;gap:16px;padding:20px 0;border-bottom:1px dashed #c0e8e5}
+/* OUR WORK */
+.work{padding:40px 0 40px 20px;background:#f0fafa}
+.work-scroll{display:flex;overflow-x:auto;gap:12px;margin-top:18px;padding-right:20px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.wc{min-width:200px;height:150px;border-radius:12px;overflow:hidden;flex-shrink:0;position:relative}
+.wc img{width:100%;height:100%;object-fit:cover}
+.wc-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,58,55,.8));padding:10px;color:#c8fff0;font-size:11px;font-weight:800}
+
+/* HOW IT WORKS */
+.how{padding:40px 20px;background:#fff}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:24px}
+.step{display:flex;gap:14px;padding:18px 0;border-bottom:1px dashed #c0e8e5}
 .step:last-child{border-bottom:none}
-.step-circle{width:52px;height:52px;border-radius:50%;background:#007a74;color:#fff;font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step h3{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:#1a3a38;margin-bottom:4px}
+.step-num{width:46px;height:46px;border-radius:50%;background:#007a74;color:#fff;font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:#1a3a38;margin-bottom:3px}
 .step p{font-size:13px;color:#6a9a98;line-height:1.6}
 
-/* Reviews */
-.reviews{padding:44px 24px;background:#fff;text-align:center}
-.reviews h2{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38;margin-bottom:6px}
-.reviews .sub{font-size:14px;color:#88aaa8;margin-bottom:28px}
-.rv-grid{display:grid;grid-template-columns:1fr;gap:16px}
-.rv{background:#f0fafa;border-radius:14px;padding:22px;text-align:left}
-.rv-stars{color:#f5c800;font-size:13px;margin-bottom:10px}
-.rv p{font-size:13px;color:#444;line-height:1.7;margin-bottom:10px;font-style:italic}
-.rv-name{font-size:12px;font-weight:700;color:#007a74}
+/* CTA */
+.cta{background:linear-gradient(135deg,#007a74,#009990);padding:40px 20px;text-align:center}
+.cta h2{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:#fff;margin-bottom:10px}
+.cta p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:22px;line-height:1.65}
+.cta a{background:#fff;color:#007a74;padding:15px 28px;border-radius:10px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block;font-family:'Nunito',sans-serif}
 
-/* Sticky bottom CTA */
-.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:#007a74;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:200;box-shadow:0 -4px 20px rgba(0,122,116,.3)}
-.bb-text p{font-size:13px;color:rgba(255,255,255,.8);font-weight:600;font-family:'Nunito',sans-serif}
-.bb-text strong{color:#fff}
-.bb-btn{background:#fff;color:#007a74;padding:10px 22px;border-radius:50px;font-weight:900;font-size:14px;text-decoration:none;font-family:'Nunito',sans-serif;white-space:nowrap}
-.page-bottom{padding-bottom:70px}
+/* STICKY BOTTOM */
+.bot{position:fixed;bottom:0;left:0;right:0;background:#007a74;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;z-index:200;box-shadow:0 -4px 16px rgba(0,122,116,.3)}
+.bot p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;font-family:'Nunito',sans-serif}
+.bot a{background:#fff;color:#007a74;padding:9px 18px;border-radius:50px;font-weight:900;font-size:13px;text-decoration:none;white-space:nowrap}
+.pb{padding-bottom:60px}
 
 @media(min-width:700px){
-  .hero{padding:80px 40px}
-  .hero h1{font-size:60px}
-  .hero-btns{flex-direction:row;max-width:none;justify-content:center}
-  .btn-teal{display:inline-block;padding:16px 32px}
-  .packages{padding:60px 0 60px 40px}
-  .how{padding:64px 40px}
-  .steps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .hero{height:500px;max-height:580px}
+  .hero h1{font-size:58px}
+  .pkgs{padding:60px 0 60px 40px}
+  .work{padding:60px 0 60px 40px}
+  .how{padding:60px 40px}
+  .steps{display:grid;grid-template-columns:1fr 1fr}
   .step{border-right:1px dashed #c0e8e5;border-bottom:none;padding:24px}
-  .step:nth-child(2){border-right:none}
-  .step:nth-child(3){border-right:1px dashed #c0e8e5}
-  .reviews{padding:64px 40px}
-  .rv-grid{grid-template-columns:1fr 1fr 1fr}
-  .bottom-bar{display:none}
-  .page-bottom{padding-bottom:0}
+  .step:nth-child(2){border-right:none}.step:nth-child(3){border-right:1px dashed #c0e8e5}
+  .cta{padding:60px 40px}
+  .bot{display:none}.pb{padding-bottom:0}
 }
 </style>
 </head>
-<body class="page-bottom">
+<body class="pb">
 
-<div class="top-banner">
-  <div class="tb-left">✨ Sparkle <span>Clean</span> MS</div>
-  <div class="tb-right">📞 <strong>(601) 555-0606</strong></div>
+<div class="nav">
+  <div class="logo">✨ Sparkle <span>Clean</span> MS</div>
+  <a href="tel:6015550606" class="nav-btn">📞 Book Now</a>
 </div>
 
 <div class="hero">
-  <span class="hero-emoji">✨</span>
-  <h1>We Clean It<br/>Like It's Ours.</h1>
-  <p>Background-checked, fully insured cleaners who bring their own supplies — and don't leave until you love it.</p>
-  <div class="hero-btns">
-    <a href="tel:6015550606" class="btn-teal">✨ Book a Cleaning</a>
+  <!-- Cleaning-specific: mopping floors, cleaning supplies, scrubbing, spotless rooms -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/6195127/pexels-photo-6195127.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✨ Jackson's #1 Cleaning Service</div>
+    <h1>We Clean It<em>Like It's Ours.</em></h1>
+    <p class="hero-sub">Background-checked, insured cleaners who don't leave until you love it.</p>
+    <a href="tel:6015550606" class="hero-btn">✨ Book a Cleaning</a>
   </div>
-  <div class="hero-trust">
-    <span class="trust-chip">⭐ 4.9 Stars</span>
-    <span class="trust-chip">✅ Fully Insured</span>
-    <span class="trust-chip">🔐 Background Checked</span>
-    <span class="trust-chip">🌱 Eco-Friendly</span>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
-<div class="packages" id="services">
-  <div class="packages-header">
-    <div class="sec-label">Cleaning Packages</div>
-    <div class="sec-h">Pick Your Plan</div>
-  </div>
+<div class="trust">
+  <span class="tc">⭐ 4.9 Stars</span>
+  <span class="tc">✅ Fully Insured</span>
+  <span class="tc">🔐 Background Checked</span>
+  <span class="tc">🌱 Eco-Friendly</span>
+  <span class="tc">💯 Satisfaction Guaranteed</span>
+</div>
+
+<div class="pkgs" id="services">
+  <div class="sec-tag" style="padding-right:20px">Cleaning Packages</div>
+  <div class="sec-h" style="padding-right:20px">Pick Your Plan</div>
+  <p class="sec-sub" style="padding-right:20px">From quick touch-ups to full deep cleans</p>
   <div class="pkg-scroll">
-    <div class="pkg-card basic">
-      <div class="pkg-icon">🧹</div>
-      <h3>Standard</h3>
-      <h4>From $99</h4>
-      <ul class="pkg-features">
+    <div class="pkg basic">
+      <div class="pkg-ico">🧹</div>
+      <h3>Standard</h3><h4>From $99</h4>
+      <ul>
         <li>All rooms vacuumed &amp; mopped</li>
-        <li>Kitchen &amp; bathroom cleaned</li>
+        <li>Kitchen &amp; bathrooms cleaned</li>
         <li>Dusting throughout</li>
         <li>Trash removed</li>
       </ul>
       <a href="tel:6015550606" class="pkg-btn">Book Standard</a>
     </div>
-    <div class="pkg-card popular">
+    <div class="pkg popular">
       <div class="pkg-badge">Most Popular</div>
-      <div class="pkg-icon">✨</div>
-      <h3>Deep Clean</h3>
-      <h4>From $179</h4>
-      <ul class="pkg-features">
+      <div class="pkg-ico">✨</div>
+      <h3>Deep Clean</h3><h4>From $179</h4>
+      <ul>
         <li>Everything in Standard, plus:</li>
         <li>Baseboards &amp; window sills</li>
         <li>Inside oven &amp; fridge</li>
@@ -155,48 +167,57 @@ body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
       </ul>
       <a href="tel:6015550606" class="pkg-btn">Book Deep Clean</a>
     </div>
-    <div class="pkg-card premium">
-      <div class="pkg-icon">🏆</div>
-      <h3>Move-In/Out</h3>
-      <h4>From $249</h4>
-      <ul class="pkg-features">
+    <div class="pkg premium">
+      <div class="pkg-ico">🏆</div>
+      <h3>Move-In/Out</h3><h4>From $249</h4>
+      <ul>
         <li>Full deep clean top-to-bottom</li>
         <li>Inside all cabinets &amp; drawers</li>
         <li>Walls spot-cleaned</li>
-        <li>Guaranteed deposit return</li>
+        <li>Deposit return guarantee</li>
       </ul>
       <a href="tel:6015550606" class="pkg-btn">Book Move Clean</a>
     </div>
   </div>
 </div>
 
+<div class="work">
+  <div class="sec-tag" style="padding-right:20px">Our Work</div>
+  <div class="sec-h" style="font-family:'Nunito',sans-serif;font-size:30px;font-weight:900;color:#1a3a38;padding-right:20px;margin:6px 0 0">Spotless Results</div>
+  <div class="work-scroll">
+    <div class="wc"><img src="https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&w=500" alt="Floor cleaning"/><div class="wc-lbl">Floor Cleaning</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&w=500" alt="Deep clean"/><div class="wc-lbl">Deep Clean</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&w=500" alt="Kitchen cleaning"/><div class="wc-lbl">Kitchen Detail</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/6195127/pexels-photo-6195127.jpeg?auto=compress&w=500" alt="Bathroom cleaning"/><div class="wc-lbl">Bathroom Detail</div></div>
+  </div>
+</div>
+
 <div class="how">
-  <div class="how-header">
-    <div class="sec-label">Simple Process</div>
-    <h2>How It Works</h2>
-  </div>
+  <div class="sec-tag">Simple Process</div>
+  <div class="sec-h" style="font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38;margin:6px 0 0">How It Works</div>
   <div class="steps">
-    <div class="step"><div class="step-circle">1</div><div><h3>Book in 60 Seconds</h3><p>Call or text — we'll confirm your slot same day.</p></div></div>
-    <div class="step"><div class="step-circle">2</div><div><h3>We Show Up On Time</h3><p>Background-checked team arrives with all supplies.</p></div></div>
-    <div class="step"><div class="step-circle">3</div><div><h3>Thorough Clean</h3><p>Room by room — nothing gets skipped or rushed.</p></div></div>
-    <div class="step"><div class="step-circle">4</div><div><h3>You Love It or We Redo It</h3><p>100% satisfaction guarantee — no questions asked.</p></div></div>
+    <div class="step"><div class="step-num">1</div><div><h3>Book in 60 Seconds</h3><p>Call or text — we confirm your slot same day.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h3>We Show Up On Time</h3><p>Background-checked team with all supplies included.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h3>Thorough Clean</h3><p>Room by room — nothing skipped or rushed.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h3>You Love It or We Redo It</h3><p>100% satisfaction guarantee — no questions asked.</p></div></div>
   </div>
 </div>
 
-<div class="reviews">
-  <h2>What Our Clients Say</h2>
-  <p class="sub">⭐⭐⭐⭐⭐ — 4.9 average across 200+ reviews</p>
-  <div class="rv-grid">
-    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Best cleaning service in Jackson. My house has never looked this good. They don't miss a single spot."</p><div class="rv-name">— Tanya B., Jackson MS</div></div>
-    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Used them for a move-out clean and got my full deposit back. Worth every penny."</p><div class="rv-name">— Marcus W., Flowood MS</div></div>
-    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Love that they use eco-friendly products — safe for my kids and it still smells amazing."</p><div class="rv-name">— Lisa H., Brandon MS</div></div>
-  </div>
+<div class="cta">
+  <h2>Ready for a Spotless Home?</h2>
+  <p>Call now — first-time clients get 10% off their first cleaning.</p>
+  <a href="tel:6015550606">📞 Call (601) 555-0606</a>
 </div>
 
-<div class="bottom-bar">
-  <div class="bb-text"><p><strong>10% off your first clean</strong> — call now</p></div>
-  <a href="tel:6015550606" class="bb-btn">📞 Book Now</a>
+<div class="bot">
+  <p>10% off first clean 🎉</p>
+  <a href="tel:6015550606">📞 Book Now</a>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length)},4000);
+</script>
 </body>
 </html>
