@@ -9,123 +9,193 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-nav{background:#fff;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,164,153,.1)}
-.nav-logo{font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;color:#007a74}
-.nav-logo span{color:#00c4bc}
-.nav-cta{background:#007a74;color:#fff;padding:9px 16px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
+/* LAYOUT: Bright, breezy — top banner → centered hero → horizontal package cards → steps → reviews */
+.top-banner{background:#007a74;padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:#fff}
+.tb-left span{color:#c8fff0}
+.tb-right{color:rgba(255,255,255,.8);font-size:12px;font-weight:600}
+.tb-right strong{color:#fff}
 
-.hero{background:linear-gradient(135deg,#007a74,#009990,#00b8b0);padding:52px 20px 48px;text-align:center}
-.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
-.hero h1{font-family:'Nunito',sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1.05;margin-bottom:16px}
-.hero h1 em{color:#c8fff0;font-style:normal}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto 36px}
-.btn-white{background:#fff;color:#007a74;padding:15px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.15)}
-.btn-outline{border:2px solid rgba(255,255,255,.5);color:#fff;padding:14px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;display:block;text-align:center}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:360px;margin:0 auto}
-.info-box{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:18px;text-align:center}
-.info-box .val{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px}
-.info-box .label{font-size:11px;color:rgba(255,255,255,.7);font-weight:600}
+/* Centered hero with big emoji */
+.hero{padding:52px 24px 48px;background:linear-gradient(180deg,#e8faf8,#fff);text-align:center}
+.hero-emoji{font-size:72px;display:block;margin-bottom:20px;animation:sparkle 2s ease-in-out infinite}
+@keyframes sparkle{0%,100%{transform:scale(1) rotate(-5deg)}50%{transform:scale(1.1) rotate(5deg)}}
+.hero h1{font-family:'Nunito',sans-serif;font-size:42px;font-weight:900;color:#007a74;line-height:1.05;margin-bottom:12px}
+.hero p{font-size:15px;color:#5a8a88;line-height:1.75;max-width:380px;margin:0 auto 28px}
+.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:300px;margin:0 auto 32px}
+.btn-teal{background:#007a74;color:#fff;padding:16px;border-radius:12px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center;font-family:'Nunito',sans-serif;box-shadow:0 8px 24px rgba(0,122,116,.25)}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.trust-chip{font-size:12px;font-weight:700;color:#007a74;background:#e0f5f4;padding:6px 14px;border-radius:100px}
 
-.wave-wrap{background:#007a74;height:40px;position:relative;overflow:hidden}
-.wave-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:#fff;border-radius:100% 100% 0 0}
+/* Package cards - horizontal scroll */
+.packages{padding:44px 0 44px 20px;background:#fff}
+.packages-header{padding-right:20px;margin-bottom:20px}
+.sec-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#007a74;margin-bottom:6px}
+.sec-h{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38}
+.pkg-scroll{display:flex;overflow-x:auto;gap:14px;padding-right:20px;scrollbar-width:none}
+.pkg-scroll::-webkit-scrollbar{display:none}
+.pkg-card{min-width:240px;border-radius:18px;padding:28px 22px;flex-shrink:0;position:relative}
+.pkg-card.basic{background:#f0fafa;border:2px solid #d0f0ee}
+.pkg-card.popular{background:#007a74;color:#fff}
+.pkg-card.premium{background:#1a3a38;color:#fff}
+.pkg-badge{position:absolute;top:16px;right:16px;background:#f5c800;color:#000;font-size:10px;font-weight:900;padding:3px 10px;border-radius:100px;text-transform:uppercase}
+.pkg-icon{font-size:32px;margin-bottom:16px}
+.pkg-card h3{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;margin-bottom:6px}
+.pkg-card.basic h3{color:#1a3a38}
+.pkg-card h4{font-size:24px;font-weight:900;margin-bottom:14px}
+.pkg-card.basic h4{color:#007a74}
+.pkg-card.popular h4,.pkg-card.premium h4{color:#c8fff0}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.pkg-features li{font-size:13px;display:flex;align-items:center;gap:8px}
+.pkg-card.basic .pkg-features li{color:#5a8a88}
+.pkg-card.popular .pkg-features li,.pkg-card.premium .pkg-features li{color:rgba(255,255,255,.8)}
+.pkg-features li::before{content:'✓';font-weight:900;color:#007a74;font-size:12px}
+.pkg-card.popular .pkg-features li::before,.pkg-card.premium .pkg-features li::before{color:#76eeda}
+.pkg-btn{display:block;text-align:center;padding:12px;border-radius:10px;font-weight:900;font-size:14px;text-decoration:none;font-family:'Nunito',sans-serif}
+.pkg-card.basic .pkg-btn{background:#007a74;color:#fff}
+.pkg-card.popular .pkg-btn{background:#fff;color:#007a74}
+.pkg-card.premium .pkg-btn{background:#76c442;color:#000}
 
-.how{padding:52px 20px;background:#fff}
-.section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#007a74;margin-bottom:8px}
-.section-h{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:#1a3a38;margin-bottom:6px}
-.section-p{color:#888;font-size:14px;margin-bottom:36px}
-.steps{display:flex;flex-direction:column;gap:20px}
-.step-card{display:flex;align-items:flex-start;gap:16px}
-.step-num{width:52px;height:52px;border-radius:50%;background:#e6faf9;border:3px solid #007a74;font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:#007a74;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-card h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:#1a3a38;margin-bottom:4px}
-.step-card p{font-size:13px;color:#888;line-height:1.6}
+/* How it works */
+.how{padding:44px 24px;background:#f0fafa}
+.how-header{text-align:center;margin-bottom:32px}
+.how-header h2{font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:#1a3a38}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:16px;padding:20px 0;border-bottom:1px dashed #c0e8e5}
+.step:last-child{border-bottom:none}
+.step-circle{width:52px;height:52px;border-radius:50%;background:#007a74;color:#fff;font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step h3{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:#1a3a38;margin-bottom:4px}
+.step p{font-size:13px;color:#6a9a98;line-height:1.6}
 
-.services{padding:52px 20px;background:#f0fafa}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc-card{background:#fff;border-radius:14px;padding:22px 16px;border:2px solid #d0f0ee}
-.svc-ico{font-size:28px;margin-bottom:10px}
-.svc-card h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:#1a3a38;margin-bottom:6px}
-.svc-card p{font-size:12px;color:#6a9a98;line-height:1.6}
+/* Reviews */
+.reviews{padding:44px 24px;background:#fff;text-align:center}
+.reviews h2{font-family:'Nunito',sans-serif;font-size:32px;font-weight:900;color:#1a3a38;margin-bottom:6px}
+.reviews .sub{font-size:14px;color:#88aaa8;margin-bottom:28px}
+.rv-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.rv{background:#f0fafa;border-radius:14px;padding:22px;text-align:left}
+.rv-stars{color:#f5c800;font-size:13px;margin-bottom:10px}
+.rv p{font-size:13px;color:#444;line-height:1.7;margin-bottom:10px;font-style:italic}
+.rv-name{font-size:12px;font-weight:700;color:#007a74}
 
-.cta{background:linear-gradient(135deg,#007a74,#00a89e);padding:52px 20px;text-align:center}
-.cta h2{font-family:'Nunito',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:10px}
-.cta p{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:28px;line-height:1.65}
-.cta a{background:#fff;color:#007a74;padding:16px 32px;border-radius:10px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+/* Sticky bottom CTA */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:#007a74;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:200;box-shadow:0 -4px 20px rgba(0,122,116,.3)}
+.bb-text p{font-size:13px;color:rgba(255,255,255,.8);font-weight:600;font-family:'Nunito',sans-serif}
+.bb-text strong{color:#fff}
+.bb-btn{background:#fff;color:#007a74;padding:10px 22px;border-radius:50px;font-weight:900;font-size:14px;text-decoration:none;font-family:'Nunito',sans-serif;white-space:nowrap}
+.page-bottom{padding-bottom:70px}
 
 @media(min-width:700px){
-  nav{padding:0 40px}
-  .hero{padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;text-align:left}
-  .hero h1{font-size:62px}
-  .hero-sub{margin-left:0}
-  .hero-btns{flex-direction:row;max-width:none;margin-left:0}
-  .btn-white,.btn-outline{display:inline-block;padding:15px 28px}
-  .hero-stats{margin:0;grid-template-columns:1fr 1fr}
-  .steps{display:grid;grid-template-columns:1fr 1fr}
-  .svc-grid{grid-template-columns:repeat(3,1fr)}
-  .how{padding:72px 40px}
-  .services{padding:72px 40px}
-  .cta{padding:72px 40px}
-  .cta h2{font-size:48px}
+  .hero{padding:80px 40px}
+  .hero h1{font-size:60px}
+  .hero-btns{flex-direction:row;max-width:none;justify-content:center}
+  .btn-teal{display:inline-block;padding:16px 32px}
+  .packages{padding:60px 0 60px 40px}
+  .how{padding:64px 40px}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .step{border-right:1px dashed #c0e8e5;border-bottom:none;padding:24px}
+  .step:nth-child(2){border-right:none}
+  .step:nth-child(3){border-right:1px dashed #c0e8e5}
+  .reviews{padding:64px 40px}
+  .rv-grid{grid-template-columns:1fr 1fr 1fr}
+  .bottom-bar{display:none}
+  .page-bottom{padding-bottom:0}
 }
 </style>
 </head>
-<body>
+<body class="page-bottom">
 
-<nav>
-  <div class="nav-logo">✨ Sparkle <span>Clean</span> MS</div>
-  <a href="tel:6015550606" class="nav-cta">Book Now</a>
-</nav>
+<div class="top-banner">
+  <div class="tb-left">✨ Sparkle <span>Clean</span> MS</div>
+  <div class="tb-right">📞 <strong>(601) 555-0606</strong></div>
+</div>
 
 <div class="hero">
-  <div>
-    <div class="hero-tag">✨ Jackson's #1 Cleaning Service</div>
-    <h1>A Spotless Home<br/><em>Guaranteed.</em></h1>
-    <p class="hero-sub">Sparkle Clean MS delivers a thorough, top-to-bottom clean every time. Background-checked, fully insured, and we bring all our own supplies.</p>
-    <div class="hero-btns">
-      <a href="tel:6015550606" class="btn-white">✨ Book a Cleaning</a>
-      <a href="#services" class="btn-outline">See Services</a>
+  <span class="hero-emoji">✨</span>
+  <h1>A Spotless Home,<br/>Guaranteed.</h1>
+  <p>Background-checked, fully insured cleaners who bring their own supplies — and don't leave until you love it.</p>
+  <div class="hero-btns">
+    <a href="tel:6015550606" class="btn-teal">✨ Book a Cleaning</a>
+  </div>
+  <div class="hero-trust">
+    <span class="trust-chip">⭐ 4.9 Stars</span>
+    <span class="trust-chip">✅ Fully Insured</span>
+    <span class="trust-chip">🔐 Background Checked</span>
+    <span class="trust-chip">🌱 Eco-Friendly</span>
+  </div>
+</div>
+
+<div class="packages" id="services">
+  <div class="packages-header">
+    <div class="sec-label">Cleaning Packages</div>
+    <div class="sec-h">Pick Your Plan</div>
+  </div>
+  <div class="pkg-scroll">
+    <div class="pkg-card basic">
+      <div class="pkg-icon">🧹</div>
+      <h3>Standard</h3>
+      <h4>From $99</h4>
+      <ul class="pkg-features">
+        <li>All rooms vacuumed &amp; mopped</li>
+        <li>Kitchen &amp; bathroom cleaned</li>
+        <li>Dusting throughout</li>
+        <li>Trash removed</li>
+      </ul>
+      <a href="tel:6015550606" class="pkg-btn">Book Standard</a>
+    </div>
+    <div class="pkg-card popular">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-icon">✨</div>
+      <h3>Deep Clean</h3>
+      <h4>From $179</h4>
+      <ul class="pkg-features">
+        <li>Everything in Standard, plus:</li>
+        <li>Baseboards &amp; window sills</li>
+        <li>Inside oven &amp; fridge</li>
+        <li>Cabinet fronts &amp; light fixtures</li>
+      </ul>
+      <a href="tel:6015550606" class="pkg-btn">Book Deep Clean</a>
+    </div>
+    <div class="pkg-card premium">
+      <div class="pkg-icon">🏆</div>
+      <h3>Move-In/Out</h3>
+      <h4>From $249</h4>
+      <ul class="pkg-features">
+        <li>Full deep clean top-to-bottom</li>
+        <li>Inside all cabinets &amp; drawers</li>
+        <li>Walls spot-cleaned</li>
+        <li>Guaranteed deposit return</li>
+      </ul>
+      <a href="tel:6015550606" class="pkg-btn">Book Move Clean</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="info-box"><div class="val">4.9★</div><div class="label">Google Rating</div></div>
-    <div class="info-box"><div class="val">500+</div><div class="label">Happy Clients</div></div>
-    <div class="info-box"><div class="val">100%</div><div class="label">Satisfaction</div></div>
-    <div class="info-box"><div class="val">Insured</div><div class="label">Fully Bonded</div></div>
-  </div>
 </div>
-
-<div class="wave-wrap"></div>
 
 <div class="how">
-  <div class="section-label">How It Works</div>
-  <div class="section-h">Spotless in 4 Steps</div>
-  <p class="section-p">No hassle. No mess left behind. Just a clean you'll love.</p>
+  <div class="how-header">
+    <div class="sec-label">Simple Process</div>
+    <h2>How It Works</h2>
+  </div>
   <div class="steps">
-    <div class="step-card"><div class="step-num">1</div><div><h3>Book Online</h3><p>Choose your service and pick a date that works for your schedule.</p></div></div>
-    <div class="step-card"><div class="step-num">2</div><div><h3>We Show Up</h3><p>Background-checked cleaners arrive on time with all supplies.</p></div></div>
-    <div class="step-card"><div class="step-num">3</div><div><h3>Deep Clean</h3><p>We go room by room, top to bottom — nothing gets missed.</p></div></div>
-    <div class="step-card"><div class="step-num">4</div><div><h3>You Relax</h3><p>Come home to a spotless house — or we'll fix it free.</p></div></div>
+    <div class="step"><div class="step-circle">1</div><div><h3>Book in 60 Seconds</h3><p>Call or text — we'll confirm your slot same day.</p></div></div>
+    <div class="step"><div class="step-circle">2</div><div><h3>We Show Up On Time</h3><p>Background-checked team arrives with all supplies.</p></div></div>
+    <div class="step"><div class="step-circle">3</div><div><h3>Thorough Clean</h3><p>Room by room — nothing gets skipped or rushed.</p></div></div>
+    <div class="step"><div class="step-circle">4</div><div><h3>You Love It or We Redo It</h3><p>100% satisfaction guarantee — no questions asked.</p></div></div>
   </div>
 </div>
 
-<div class="services" id="services">
-  <div class="section-label">Our Services</div>
-  <div class="section-h" style="font-family:'Nunito',sans-serif;font-size:34px;font-weight:900;color:#1a3a38;margin-bottom:6px">Cleaning Packages</div>
-  <p class="section-p" style="color:#888;font-size:14px;margin-bottom:32px">From quick touch-ups to full deep cleans</p>
-  <div class="svc-grid">
-    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Standard Clean</h3><p>Weekly or bi-weekly maintenance — kitchens, baths, vacuuming, dusting &amp; mopping.</p></div>
-    <div class="svc-card"><div class="svc-ico">✨</div><h3>Deep Cleaning</h3><p>Top-to-bottom scrub — baseboards, appliances, cabinet fronts, window sills.</p></div>
-    <div class="svc-card"><div class="svc-ico">📦</div><h3>Move-In/Out</h3><p>Spotless before your move — perfect for landlords and new homeowners.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏢</div><h3>Office Cleaning</h3><p>Commercial cleaning for offices and lobbies — available after hours.</p></div>
-    <div class="svc-card"><div class="svc-ico">🎉</div><h3>Post-Event</h3><p>Party last night? We'll have your home looking new by morning.</p></div>
-    <div class="svc-card"><div class="svc-ico">🌱</div><h3>Eco-Friendly</h3><p>Green, non-toxic products — safe for kids, pets &amp; sensitive households.</p></div>
+<div class="reviews">
+  <h2>What Our Clients Say</h2>
+  <p class="sub">⭐⭐⭐⭐⭐ — 4.9 average across 200+ reviews</p>
+  <div class="rv-grid">
+    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Best cleaning service in Jackson. My house has never looked this good. They don't miss a single spot."</p><div class="rv-name">— Tanya B., Jackson MS</div></div>
+    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Used them for a move-out clean and got my full deposit back. Worth every penny."</p><div class="rv-name">— Marcus W., Flowood MS</div></div>
+    <div class="rv"><div class="rv-stars">⭐⭐⭐⭐⭐</div><p>"Love that they use eco-friendly products — safe for my kids and it still smells amazing."</p><div class="rv-name">— Lisa H., Brandon MS</div></div>
   </div>
 </div>
 
-<div class="cta">
-  <h2>Ready for a Spotless Home?</h2>
-  <p>Book online in 60 seconds or call us. First-time clients get 10% off.</p>
-  <a href="tel:6015550606">✨ Call (601) 555-0606</a>
+<div class="bottom-bar">
+  <div class="bb-text"><p><strong>10% off your first clean</strong> — call now</p></div>
+  <a href="tel:6015550606" class="bb-btn">📞 Book Now</a>
 </div>
 
 </body>
