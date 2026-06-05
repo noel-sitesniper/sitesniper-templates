@@ -7,112 +7,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden}
 
-nav{background:#0a1628;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{color:#fff;font-size:17px;font-weight:900}
-.nav-logo span{color:#d4a017}
-.nav-phone{background:#d4a017;color:#000;padding:9px 16px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none;white-space:nowrap}
+/* LAYOUT: Split-screen sticky sidebar style */
+.top-bar{background:#0a1628;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{color:#fff;font-size:16px;font-weight:900}.logo span{color:#d4a017}
+.top-phone{color:#d4a017;font-weight:800;font-size:14px;text-decoration:none}
 
-.hero{background:linear-gradient(160deg,#071020,#0a1628,#122240);padding:52px 20px 48px;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.35);color:#d4a017;padding:6px 14px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
-.hero h1{font-size:36px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px}
-.hero h1 em{color:#d4a017;font-style:normal}
-.hero-sub{color:#7a9abf;font-size:15px;line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto 36px}
-.btn-gold{background:#d4a017;color:#000;padding:15px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center}
-.btn-ghost{border:2px solid rgba(255,255,255,.25);color:#fff;padding:14px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;display:block;text-align:center}
-.trust-cards{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto}
-.trust-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;text-align:left}
-.trust-card .icon{width:46px;height:46px;background:#d4a017;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.trust-card h4{color:#fff;font-size:14px;font-weight:800;margin-bottom:3px}
-.trust-card p{color:#7a9abf;font-size:12px;line-height:1.4}
+/* Big number hero - left aligned with accent line */
+.hero{padding:44px 20px 36px;background:#fff;border-bottom:4px solid #d4a017}
+.hero-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017;margin-bottom:12px}
+.hero h1{font-size:48px;font-weight:900;line-height:.95;color:#0a1628;margin-bottom:20px}
+.hero h1 .accent{display:block;font-size:64px;color:#d4a017}
+.hero-body{display:flex;flex-direction:column;gap:20px}
+.hero-desc{font-size:15px;color:#555;line-height:1.7;max-width:420px}
+.hero-cta-block{background:#0a1628;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.hero-cta-block p{color:#aaa;font-size:13px}
+.cta-main{background:#d4a017;color:#000;padding:14px 20px;border-radius:8px;font-weight:900;font-size:15px;text-decoration:none;text-align:center;display:block}
+.cta-sub{color:#aaa;font-size:12px;text-align:center}
 
-.stats-bar{background:#d4a017;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.stat-item{text-align:center}
-.stat-item .n{font-size:24px;font-weight:900;color:#000;line-height:1}
-.stat-item .l{font-size:10px;font-weight:700;color:rgba(0,0,0,.6);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+/* Horizontal scrolling trust strip */
+.trust-strip{display:flex;overflow-x:auto;gap:12px;padding:20px;background:#f5f7ff;scrollbar-width:none}
+.trust-strip::-webkit-scrollbar{display:none}
+.trust-chip{background:#fff;border:2px solid #e0e8f8;border-radius:12px;padding:16px 20px;min-width:160px;flex-shrink:0;text-align:center}
+.trust-chip .ico{font-size:24px;margin-bottom:6px}
+.trust-chip h4{font-size:13px;font-weight:800;color:#0a1628;margin-bottom:3px}
+.trust-chip p{font-size:11px;color:#888}
 
-.services{padding:52px 20px;background:#f4f6fb}
-.section-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#d4a017;margin-bottom:8px}
-.section-title{font-size:30px;font-weight:900;color:#0a1628;margin-bottom:8px}
-.section-sub{color:#64748b;font-size:14px;margin-bottom:32px}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc-card{background:#fff;border-radius:14px;padding:22px 18px;border:2px solid #e8ecf4}
-.svc-ico{font-size:28px;margin-bottom:10px}
-.svc-card h3{font-size:14px;font-weight:800;color:#0a1628;margin-bottom:6px}
-.svc-card p{font-size:12px;color:#64748b;line-height:1.55}
+/* Services - big list with dividers */
+.services{padding:44px 20px}
+.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#d4a017}
+.sec-h{font-size:32px;font-weight:900;color:#0a1628;margin:8px 0 28px}
+.svc-item{border-top:1px solid #eee;padding:20px 0;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.svc-item:last-child{border-bottom:1px solid #eee}
+.svc-num{font-size:28px;font-weight:900;color:#d4a017;opacity:.4;line-height:1;font-variant-numeric:tabular-nums}
+.svc-txt h3{font-size:16px;font-weight:800;color:#0a1628;margin-bottom:4px}
+.svc-txt p{font-size:13px;color:#777;line-height:1.6}
 
-.cta-banner{background:linear-gradient(135deg,#0a1628,#122240);padding:52px 20px;text-align:center}
-.cta-banner h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px}
-.cta-banner p{color:#7a9abf;font-size:14px;margin-bottom:28px;line-height:1.65}
-.cta-btn{background:#d4a017;color:#000;padding:16px 32px;border-radius:10px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block}
+/* Emergency banner */
+.emergency{background:#d4a017;padding:28px 20px;text-align:center}
+.emergency h2{font-size:26px;font-weight:900;color:#000;margin-bottom:6px}
+.emergency p{font-size:14px;color:rgba(0,0,0,.65);margin-bottom:18px}
+.emergency a{background:#000;color:#d4a017;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block}
+
+/* Reviews */
+.reviews{padding:44px 20px;background:#fafafa}
+.review-scroll{display:flex;overflow-x:auto;gap:14px;padding-bottom:4px;scrollbar-width:none;margin-top:24px}
+.review-scroll::-webkit-scrollbar{display:none}
+.review-card{background:#fff;border:2px solid #eee;border-radius:14px;padding:20px;min-width:260px;flex-shrink:0}
+.stars{color:#d4a017;font-size:14px;margin-bottom:10px}
+.review-card p{font-size:13px;color:#444;line-height:1.65;margin-bottom:12px}
+.reviewer{font-size:12px;font-weight:700;color:#888}
 
 @media(min-width:700px){
-  nav{padding:0 40px}
-  .hero{padding:80px 40px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .hero-badge{margin-bottom:24px}
-  .hero h1{font-size:54px}
-  .hero-btns{flex-direction:row;max-width:none;margin-left:0}
-  .btn-gold,.btn-ghost{display:inline-block;padding:15px 28px}
-  .trust-cards{margin:0}
-  .stats-bar{grid-template-columns:repeat(4,1fr)}
-  .svc-grid{grid-template-columns:repeat(3,1fr)}
-  .services{padding:72px 40px}
-  .cta-banner{padding:72px 40px}
-  .cta-banner h2{font-size:38px}
+  .hero{padding:60px 40px;display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:center}
+  .hero h1{font-size:64px}.hero h1 .accent{font-size:88px}
+  .hero-body{flex-direction:row;align-items:flex-start}
+  .services{padding:60px 40px}
+  .emergency{padding:48px 40px}
+  .reviews{padding:60px 40px}
+  .trust-strip{padding:24px 40px}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">🔧 Delta <span>Plumbing</span></div>
-  <a href="tel:6015550101" class="nav-phone">📞 Call Now</a>
-</nav>
+<div class="top-bar">
+  <div class="logo">🔧 Delta <span>Plumbing</span></div>
+  <a href="tel:6015550101" class="top-phone">📞 (601) 555-0101</a>
+</div>
 
 <div class="hero">
   <div>
-    <div class="hero-badge">⭐ 4.9 Stars · Licensed &amp; Insured</div>
-    <h1>Jackson's Most Trusted<br/><em>Plumbing Pros</em></h1>
-    <p class="hero-sub">From burst pipes to full bathroom remodels — we fix it fast, fix it right, and back every job with a 100% satisfaction guarantee.</p>
-    <div class="hero-btns">
-      <a href="tel:6015550101" class="btn-gold">📞 Free Estimate</a>
-      <a href="#services" class="btn-ghost">Our Services ↓</a>
-    </div>
+    <div class="hero-kicker">Jackson, MS · Licensed &amp; Insured</div>
+    <h1>Jackson's<span class="accent">Plumbing</span>Experts</h1>
+    <p class="hero-desc">From burst pipes to full bathroom remodels — we show up fast, fix it right, and stand behind every job with a 100% satisfaction guarantee.</p>
   </div>
-  <div class="trust-cards">
-    <div class="trust-card"><div class="icon">⚡</div><div><h4>Same-Day Service</h4><p>Most jobs completed same day — even weekends.</p></div></div>
-    <div class="trust-card"><div class="icon">🔒</div><div><h4>Licensed &amp; Insured</h4><p>All technicians state-licensed. Your home is protected.</p></div></div>
-    <div class="trust-card"><div class="icon">💰</div><div><h4>Flat Pricing</h4><p>No surprise fees. You see the price before we start.</p></div></div>
+  <div class="hero-cta-block">
+    <p>🕐 Same-day appointments available</p>
+    <a href="tel:6015550101" class="cta-main">📞 Get a Free Estimate</a>
+    <span class="cta-sub">⭐⭐⭐⭐⭐ 4.9 · 120+ Reviews</span>
   </div>
 </div>
 
-<div class="stats-bar">
-  <div class="stat-item"><div class="n">24/7</div><div class="l">Emergency</div></div>
-  <div class="stat-item"><div class="n">15+</div><div class="l">Yrs Exp</div></div>
-  <div class="stat-item"><div class="n">800+</div><div class="l">Jobs Done</div></div>
-  <div class="stat-item"><div class="n">4.9★</div><div class="l">Rating</div></div>
+<div class="trust-strip">
+  <div class="trust-chip"><div class="ico">⚡</div><h4>Same-Day</h4><p>Most jobs done today</p></div>
+  <div class="trust-chip"><div class="ico">🔒</div><h4>Licensed</h4><p>State certified techs</p></div>
+  <div class="trust-chip"><div class="ico">💰</div><h4>Flat Pricing</h4><p>Price before we start</p></div>
+  <div class="trust-chip"><div class="ico">📞</div><h4>24/7 Emergency</h4><p>Always available</p></div>
+  <div class="trust-chip"><div class="ico">✅</div><h4>Guaranteed</h4><p>100% satisfaction</p></div>
 </div>
 
 <div class="services" id="services">
-  <div class="section-tag">What We Do</div>
-  <div class="section-title">Plumbing Services</div>
-  <p class="section-sub">Residential &amp; commercial solutions throughout the Jackson metro area</p>
-  <div class="svc-grid">
-    <div class="svc-card"><div class="svc-ico">🚿</div><h3>Drain Cleaning</h3><p>Clogged drains cleared fast with hydro-jetting.</p></div>
-    <div class="svc-card"><div class="svc-ico">🔥</div><h3>Water Heaters</h3><p>Repair, replacement &amp; tankless installation.</p></div>
-    <div class="svc-card"><div class="svc-ico">🔩</div><h3>Pipe Repair</h3><p>Leak detection, repiping &amp; burst pipe emergency.</p></div>
-    <div class="svc-card"><div class="svc-ico">🛁</div><h3>Bathroom Remodels</h3><p>Full plumbing rough-in &amp; fixture installation.</p></div>
-    <div class="svc-card"><div class="svc-ico">💧</div><h3>Sewer Lines</h3><p>Camera inspection, cleaning &amp; trenchless repair.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Water Filtration</h3><p>Whole-home filtration &amp; softener systems.</p></div>
-  </div>
+  <div class="sec-tag">What We Handle</div>
+  <div class="sec-h">Our Services</div>
+  <div class="svc-item"><div class="svc-num">01</div><div class="svc-txt"><h3>Drain Cleaning</h3><p>Hydro-jetting and snake service for slow or completely blocked drains — same day.</p></div></div>
+  <div class="svc-item"><div class="svc-num">02</div><div class="svc-txt"><h3>Water Heater Repair &amp; Install</h3><p>Tank and tankless water heater service, including full replacements with warranty.</p></div></div>
+  <div class="svc-item"><div class="svc-num">03</div><div class="svc-txt"><h3>Leak Detection &amp; Pipe Repair</h3><p>Burst pipes, slab leaks, pinhole leaks — found fast and fixed for good.</p></div></div>
+  <div class="svc-item"><div class="svc-num">04</div><div class="svc-txt"><h3>Bathroom &amp; Kitchen Remodels</h3><p>Full plumbing rough-in, fixture installation, and finish work for any remodel.</p></div></div>
+  <div class="svc-item"><div class="svc-num">05</div><div class="svc-txt"><h3>Sewer Line Services</h3><p>Camera inspection, hydro-jetting, trenchless repair, and full replacement.</p></div></div>
+  <div class="svc-item"><div class="svc-num">06</div><div class="svc-txt"><h3>Water Filtration</h3><p>Whole-home water softeners and filtration systems — installed and maintained.</p></div></div>
 </div>
 
-<div class="cta-banner">
-  <h2>Need a Plumber Today?</h2>
-  <p>Call now for a free estimate. Same-day appointments available in Jackson &amp; surrounding areas.</p>
-  <a href="tel:6015550101" class="cta-btn">📞 (601) 555-0101</a>
+<div class="emergency">
+  <h2>Plumbing Emergency?</h2>
+  <p>We answer the phone 24/7. No extra charge for after-hours service calls.</p>
+  <a href="tel:6015550101">📞 Call Right Now</a>
+</div>
+
+<div class="reviews">
+  <div class="sec-tag">What People Say</div>
+  <div class="sec-h" style="font-size:28px;font-weight:900;color:#0a1628;margin:8px 0 0">Real Reviews</div>
+  <div class="review-scroll">
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Showed up within an hour of calling. Fixed my burst pipe and even cleaned up the mess. Absolute lifesavers."</p><div class="reviewer">— Marcus T., Jackson MS</div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Flat-rate pricing means no surprise bill at the end. That alone makes them my plumber for life."</p><div class="reviewer">— Sandra K., Brandon MS</div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Installed a new water heater in under 2 hours. Professional, fast, and reasonably priced."</p><div class="reviewer">— James R., Ridgeland MS</div></div>
+  </div>
 </div>
 
 </body>
