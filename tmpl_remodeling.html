@@ -4,142 +4,180 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Craftsmen Remodeling — Jackson, MS</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#fff;overflow-x:hidden}
 
-nav{background:#1c1c2e;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:#fff}
-.nav-logo span{color:#f97316}
-.nav-cta{background:#f97316;color:#fff;padding:9px 16px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
+/* LAYOUT: Luxury portfolio style — photo-first, project showcase, no traditional hero */
+.topbar{background:#1c1c2e;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.tl{font-family:'DM Serif Display',serif;font-size:16px;color:#fff}
+.tl span{color:#f97316}
+.tr a{background:#f97316;color:#fff;padding:10px 18px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
 
-.hero{background:#1c1c2e;padding:52px 20px 48px;text-align:center}
-.hero-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:16px}
-.hero h1{font-family:'DM Serif Display',serif;font-size:44px;color:#fff;line-height:1.1;margin-bottom:18px}
-.hero h1 span{color:#f97316}
-.hero-sub{font-size:15px;color:#8888aa;line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto 36px}
-.btn-orange{background:#f97316;color:#fff;padding:15px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none;display:block;text-align:center}
-.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;padding:14px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;display:block;text-align:center}
-.hero-stats{display:flex;justify-content:center;gap:32px;margin-bottom:36px}
-.hs-item{border-left:3px solid #f97316;padding-left:14px;text-align:left}
-.hs-item .val{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;line-height:1}
-.hs-item .lbl{font-size:11px;color:#6666aa;margin-top:4px;font-weight:600}
-.project-cards{display:flex;flex-direction:column;gap:14px;max-width:440px;margin:0 auto}
-.project-card{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:14px;padding:20px 22px;text-align:left}
-.project-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:6px}
-.project-card h4{font-family:'DM Serif Display',serif;font-size:18px;color:#fff;margin-bottom:5px}
-.project-card p{font-size:12px;color:#7777aa;line-height:1.6}
-.project-tag{display:inline-block;background:rgba(249,115,22,.15);color:#f97316;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:8px}
+/* Above fold: big quote/tagline + contact block */
+.intro{padding:52px 20px 36px;background:#1c1c2e;color:#fff;text-align:center}
+.intro-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#f97316;margin-bottom:16px}
+.intro h1{font-family:'DM Serif Display',serif;font-size:48px;color:#fff;line-height:1.05;margin-bottom:16px}
+.intro h1 em{color:#f97316;font-style:italic}
+.intro p{font-size:15px;color:#8888aa;line-height:1.75;max-width:420px;margin:0 auto 32px}
+.intro-cta{display:inline-flex;align-items:center;gap:10px;background:#f97316;color:#fff;padding:16px 28px;border-radius:10px;text-decoration:none;font-weight:900;font-size:15px}
+.intro-sub{margin-top:16px;font-size:12px;color:#6666aa}
 
-.orange-bar{background:#f97316;padding:18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ob-stat{text-align:center}
-.ob-stat .n{font-size:22px;font-weight:900;color:#fff}
-.ob-stat .l{font-size:10px;font-weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px}
+/* Project showcase: tall cards */
+.showcase{padding:44px 20px;background:#f8f7ff}
+.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#f97316;margin-bottom:6px}
+.sec-h{font-family:'DM Serif Display',serif;font-size:36px;color:#1c1c2e;margin-bottom:6px}
+.sec-sub{font-size:14px;color:#888;margin-bottom:28px}
+.project-list{display:flex;flex-direction:column;gap:20px}
+.project{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #ede9fe}
+.project-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:64px}
+.project-img.kitchen{background:linear-gradient(135deg,#2d1a0e,#5c3417)}
+.project-img.bath{background:linear-gradient(135deg,#0e1a2d,#1a3a5c)}
+.project-img.deck{background:linear-gradient(135deg,#0e2d1a,#1a5c3a)}
+.project-body{padding:20px}
+.project-cat{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:6px}
+.project h3{font-family:'DM Serif Display',serif;font-size:22px;color:#1c1c2e;margin-bottom:8px}
+.project p{font-size:13px;color:#888;line-height:1.65;margin-bottom:14px}
+.project-stats{display:flex;gap:16px;border-top:1px solid #f0eeff;padding-top:14px}
+.ps-item{text-align:center}
+.ps-item .v{font-size:16px;font-weight:900;color:#1c1c2e}
+.ps-item .l{font-size:10px;color:#aaa;font-weight:600;margin-top:2px}
 
-.services{padding:52px 20px;background:#f8f7ff}
-.section-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f97316;margin-bottom:8px}
-.section-h{font-family:'DM Serif Display',serif;font-size:36px;color:#1c1c2e;margin-bottom:6px}
-.section-p{color:#888;font-size:14px;margin-bottom:32px}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc-card{background:#fff;border-radius:14px;padding:22px 16px;border:2px solid #ede9fe}
-.svc-ico{font-size:28px;margin-bottom:10px}
-.svc-card h3{font-family:'DM Serif Display',serif;font-size:17px;color:#1c1c2e;margin-bottom:6px}
-.svc-card p{font-size:12px;color:#888;line-height:1.6}
+/* Services: two-column with icons */
+.services{padding:44px 20px;background:#fff}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.svc{border-radius:14px;padding:22px 16px;border:2px solid #ede9fe;background:#fdfcff}
+.svc .ico{font-size:26px;margin-bottom:10px}
+.svc h3{font-family:'DM Serif Display',serif;font-size:19px;color:#1c1c2e;margin-bottom:6px}
+.svc p{font-size:12px;color:#999;line-height:1.65}
 
-.cta{background:linear-gradient(135deg,#1c1c2e,#2a2a50);padding:52px 20px;text-align:center}
-.cta h2{font-family:'DM Serif Display',serif;font-size:38px;color:#fff;margin-bottom:10px}
-.cta h2 span{color:#f97316}
-.cta p{color:#8888aa;font-size:14px;margin-bottom:28px;line-height:1.65}
-.cta a{background:#f97316;color:#fff;padding:16px 32px;border-radius:10px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block}
+/* Process: numbered dark section */
+.process{background:#1c1c2e;padding:44px 20px}
+.process .sec-tag{color:#f97316}
+.process .sec-h{color:#fff;margin-bottom:32px}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.ps{padding:24px 0;border-bottom:1px solid #2a2a44;display:flex;gap:20px;align-items:flex-start}
+.ps:last-child{border-bottom:none}
+.ps-num{font-family:'DM Serif Display',serif;font-size:48px;color:#f97316;opacity:.3;line-height:1;flex-shrink:0;width:52px}
+.ps h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+.ps p{font-size:13px;color:#7777aa;line-height:1.65}
+
+/* CTA: elegant dark */
+.cta{background:#f97316;padding:52px 20px;text-align:center}
+.cta h2{font-family:'DM Serif Display',serif;font-size:40px;color:#fff;margin-bottom:12px;line-height:1.1}
+.cta h2 em{font-style:italic}
+.cta p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.75;margin-bottom:28px}
+.cta a{background:#fff;color:#f97316;padding:16px 32px;border-radius:10px;text-decoration:none;font-weight:900;font-size:16px;display:inline-block}
+.cta-note{margin-top:14px;font-size:12px;color:rgba(255,255,255,.6)}
 
 @media(min-width:700px){
-  nav{padding:0 40px}
-  .hero{padding:80px 40px;text-align:left;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-  .hero h1{font-size:64px}
-  .hero-sub{margin-left:0}
-  .hero-btns{flex-direction:row;max-width:none;margin-left:0}
-  .btn-orange,.btn-ghost{display:inline-block;padding:15px 28px}
-  .hero-stats{justify-content:flex-start;margin-bottom:0}
-  .project-cards{margin:0;max-width:none}
-  .orange-bar{grid-template-columns:repeat(4,1fr)}
+  .intro{padding:80px 40px}
+  .intro h1{font-size:72px}
+  .showcase{padding:64px 40px}
+  .project-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+  .project-img{height:220px}
+  .services{padding:64px 40px}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
-  .services{padding:72px 40px}
+  .process{padding:64px 40px}
+  .process-steps{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .ps{border-bottom:none;border-right:none}
   .cta{padding:72px 40px}
-  .cta h2{font-size:52px}
+  .cta h2{font-size:56px}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">Craftsmen <span>Remodeling</span></div>
-  <a href="tel:6015550707" class="nav-cta">Free Estimate</a>
-</nav>
-
-<div class="hero">
-  <div>
-    <div class="hero-tag">Jackson, MS · Licensed &amp; Insured</div>
-    <h1>Your Home,<br/>Beautifully<br/><span>Reimagined.</span></h1>
-    <p class="hero-sub">Quality materials, master craftsmanship, and on-time delivery — guaranteed. Kitchens, bathrooms, additions, and more.</p>
-    <div class="hero-btns">
-      <a href="tel:6015550707" class="btn-orange">🔨 Free Estimate</a>
-      <a href="#services" class="btn-ghost">See Services</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs-item"><div class="val">300+</div><div class="lbl">Projects Done</div></div>
-      <div class="hs-item"><div class="val">4.9★</div><div class="lbl">Google Rating</div></div>
-      <div class="hs-item"><div class="val">15yr</div><div class="lbl">Experience</div></div>
-    </div>
-  </div>
-  <div class="project-cards">
-    <div class="project-card">
-      <div class="project-label">Recent Project</div>
-      <h4>Full Kitchen Renovation</h4>
-      <p>Custom cabinets, quartz countertops &amp; new flooring — completed in 3 weeks on budget.</p>
-      <span class="project-tag">Kitchen</span>
-    </div>
-    <div class="project-card">
-      <div class="project-label">Recent Project</div>
-      <h4>Master Bath Remodel</h4>
-      <p>Walk-in tile shower, double vanity, luxury finishes — transformed in 10 days.</p>
-      <span class="project-tag">Bathroom</span>
-    </div>
-    <div class="project-card">
-      <div class="project-label">Recent Project</div>
-      <h4>Deck &amp; Outdoor Addition</h4>
-      <p>Composite deck with built-in seating and lighting — perfect for entertaining.</p>
-      <span class="project-tag">Outdoor</span>
-    </div>
-  </div>
+<div class="topbar">
+  <div class="tl">Craftsmen <span>Remodeling</span></div>
+  <div class="tr"><a href="tel:6015550707">Free Estimate</a></div>
 </div>
 
-<div class="orange-bar">
-  <div class="ob-stat"><div class="n">300+</div><div class="l">Projects</div></div>
-  <div class="ob-stat"><div class="n">15+</div><div class="l">Yrs Exp</div></div>
-  <div class="ob-stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
-  <div class="ob-stat"><div class="n">On Time</div><div class="l">Delivery</div></div>
+<div class="intro">
+  <div class="intro-kicker">Jackson, MS · 15+ Years · Licensed</div>
+  <h1>We Build <em>Beautiful</em><br/>Things.</h1>
+  <p>Kitchen remodels, bathroom renovations, decks, and additions — quality craftsmanship with on-time, on-budget delivery. Guaranteed.</p>
+  <a href="tel:6015550707" class="intro-cta">🔨 Get a Free Estimate</a>
+  <p class="intro-sub">⭐⭐⭐⭐⭐ 4.9 Stars · 300+ Projects Completed</p>
+</div>
+
+<div class="showcase" id="projects">
+  <div class="sec-tag">Recent Work</div>
+  <div class="sec-h">Our Projects</div>
+  <p class="sec-sub">Real renovations for real Jackson homeowners</p>
+  <div class="project-list">
+    <div class="project">
+      <div class="project-img kitchen">🍳</div>
+      <div class="project-body">
+        <div class="project-cat">Kitchen</div>
+        <h3>Full Kitchen Renovation</h3>
+        <p>Custom shaker cabinets, quartz countertops, new flooring, and under-cabinet lighting — finished in 3 weeks under budget.</p>
+        <div class="project-stats">
+          <div class="ps-item"><div class="v">3 wks</div><div class="l">Timeline</div></div>
+          <div class="ps-item"><div class="v">On Budget</div><div class="l">Result</div></div>
+          <div class="ps-item"><div class="v">5★</div><div class="l">Rating</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-img bath">🛁</div>
+      <div class="project-body">
+        <div class="project-cat">Bathroom</div>
+        <h3>Master Bath Remodel</h3>
+        <p>Walk-in tile shower with bench, double floating vanity, and freestanding soaking tub — transformed in 10 days.</p>
+        <div class="project-stats">
+          <div class="ps-item"><div class="v">10 days</div><div class="l">Timeline</div></div>
+          <div class="ps-item"><div class="v">Luxury</div><div class="l">Finishes</div></div>
+          <div class="ps-item"><div class="v">5★</div><div class="l">Rating</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-img deck">🌳</div>
+      <div class="project-body">
+        <div class="project-cat">Outdoor</div>
+        <h3>Composite Deck &amp; Pergola</h3>
+        <p>Built-in seating, string lighting, and Trex composite decking — a full outdoor living room ready for entertaining.</p>
+        <div class="project-stats">
+          <div class="ps-item"><div class="v">2 wks</div><div class="l">Timeline</div></div>
+          <div class="ps-item"><div class="v">30yr</div><div class="l">Warranty</div></div>
+          <div class="ps-item"><div class="v">5★</div><div class="l">Rating</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="services" id="services">
-  <div class="section-label">Our Services</div>
-  <div class="section-h">What We Build</div>
-  <p class="section-p">Expert remodeling for every room — from concept to completion</p>
+  <div class="sec-tag">Services</div>
+  <div class="sec-h">What We Build</div>
   <div class="svc-grid">
-    <div class="svc-card"><div class="svc-ico">🍳</div><h3>Kitchen Remodels</h3><p>Cabinets, countertops, islands, appliances &amp; lighting — full custom renovations.</p></div>
-    <div class="svc-card"><div class="svc-ico">🛁</div><h3>Bathroom Renovations</h3><p>Walk-in showers, soaking tubs, double vanities &amp; tile — luxury on any budget.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏠</div><h3>Room Additions</h3><p>Expand your space — bedrooms, sunrooms, or bonus rooms, fully permitted.</p></div>
-    <div class="svc-card"><div class="svc-ico">🪟</div><h3>Flooring &amp; Windows</h3><p>Hardwood, tile, LVP &amp; carpet. Window replacement for energy efficiency.</p></div>
-    <div class="svc-card"><div class="svc-ico">🌳</div><h3>Decks &amp; Patios</h3><p>Composite or wood decks, concrete patios, pergolas &amp; outdoor living spaces.</p></div>
-    <div class="svc-card"><div class="svc-ico">🏚️</div><h3>Full Renovations</h3><p>Complete gut renovations for older homes or investment properties.</p></div>
+    <div class="svc"><div class="ico">🍳</div><h3>Kitchen</h3><p>Cabinets, countertops, islands, appliances &amp; full gut renovations.</p></div>
+    <div class="svc"><div class="ico">🛁</div><h3>Bathroom</h3><p>Showers, tubs, vanities, tile &amp; luxury fixtures on any budget.</p></div>
+    <div class="svc"><div class="ico">🏠</div><h3>Additions</h3><p>Room additions, sunrooms &amp; bonus rooms — fully permitted.</p></div>
+    <div class="svc"><div class="ico">🪟</div><h3>Flooring</h3><p>Hardwood, LVP, tile, carpet &amp; energy-efficient windows.</p></div>
+    <div class="svc"><div class="ico">🌳</div><h3>Decks &amp; Patios</h3><p>Composite or wood decks, concrete patios &amp; pergolas.</p></div>
+    <div class="svc"><div class="ico">🏚️</div><h3>Full Reno</h3><p>Complete gut renovations for older homes &amp; investment properties.</p></div>
+  </div>
+</div>
+
+<div class="process">
+  <div class="sec-tag">How It Works</div>
+  <div class="sec-h">Our Process</div>
+  <div class="process-steps">
+    <div class="ps"><div class="ps-num">1</div><div><h3>Free Consultation</h3><p>We come to you, listen to your vision, and give you an honest estimate within 24 hours.</p></div></div>
+    <div class="ps"><div class="ps-num">2</div><div><h3>Design &amp; Plan</h3><p>We create a detailed scope of work, timeline, and materials list — no surprises.</p></div></div>
+    <div class="ps"><div class="ps-num">3</div><div><h3>We Build It</h3><p>Licensed crew works on-site daily until complete — you get progress updates throughout.</p></div></div>
+    <div class="ps"><div class="ps-num">4</div><div><h3>Final Walkthrough</h3><p>We walk every inch with you. Nothing is done until you're 100% satisfied.</p></div></div>
   </div>
 </div>
 
 <div class="cta">
-  <h2>Ready to <span>Build Something Beautiful?</span></h2>
-  <p>Call now or request a free in-home estimate. We'll walk your vision and give you an honest quote.</p>
+  <h2>Ready to Build<br/><em>Something Beautiful?</em></h2>
+  <p>Call now for a free in-home estimate. We serve Jackson, Brandon, Madison, and Ridgeland.</p>
   <a href="tel:6015550707">🔨 Call (601) 555-0707</a>
+  <p class="cta-note">No obligation · Free estimate · Licensed &amp; insured</p>
 </div>
 
 </body>
