@@ -9,71 +9,76 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#111;color:#fff;overflow-x:hidden}
 
-/* LAYOUT: Full-bleed dark with floating card nav */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;position:sticky;top:0;z-index:100;background:rgba(17,17,17,.95);backdrop-filter:blur(8px);border-bottom:1px solid #222}
-.logo{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:1px}
+/* NAV */
+.nav{background:#111;border-bottom:2px solid #f5c800;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:#fff;letter-spacing:1px;white-space:nowrap;flex-shrink:0}
 .logo span{color:#f5c800}
-.nav-btn{border:2px solid #f5c800;color:#f5c800;padding:8px 16px;border-radius:6px;font-weight:800;font-size:13px;text-decoration:none}
+.nav-btn{background:#f5c800;color:#000;padding:9px 14px;border-radius:6px;font-weight:900;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:5px}
 
-/* Hero: massive typography */
-.hero{padding:56px 20px 0;text-align:center}
-.hero-pill{display:inline-block;background:#f5c800;color:#000;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:5px 14px;border-radius:100px;margin-bottom:24px}
-.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;text-transform:uppercase;line-height:.88;margin-bottom:24px;letter-spacing:-1px}
-.hero h1 .line2{color:#f5c800}
-.hero h1 .line3{color:#333;-webkit-text-stroke:1px #555}
-.hero p{font-size:15px;color:#888;line-height:1.7;max-width:420px;margin:0 auto 32px}
-.hero-btns{display:flex;flex-direction:column;gap:12px;max-width:300px;margin:0 auto}
-.btn-y{background:#f5c800;color:#000;padding:15px;border-radius:6px;font-weight:900;font-size:15px;text-decoration:none;display:block;text-align:center}
-.btn-d{background:#1c1c1c;color:#fff;padding:14px;border-radius:6px;font-weight:700;font-size:14px;text-decoration:none;display:block;text-align:center;border:1px solid #333}
+/* HERO CAROUSEL */
+.hero{position:relative;height:88vw;max-height:520px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.2s;opacity:0}
+.slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(17,17,17,.9))}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;z-index:2}
+.hero-pill{display:inline-block;background:#f5c800;color:#000;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:4px 12px;border-radius:100px;margin-bottom:12px;width:fit-content}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;line-height:.9;margin-bottom:12px}
+.hero h1 span{color:#f5c800;display:block}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.6}
+.hero-btn{background:#f5c800;color:#000;padding:14px 24px;border-radius:6px;font-weight:900;font-size:14px;text-decoration:none;display:inline-block;text-transform:uppercase}
+.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.dot.on{background:#f5c800}
 
-/* Stats as big yellow numbers */
-.stats{display:grid;grid-template-columns:1fr 1fr;background:#f5c800;margin-top:40px}
-.stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
-.stat:nth-child(2){border-right:none}
-.stat:nth-child(3){border-bottom:none}
-.stat:nth-child(4){border-right:none;border-bottom:none}
-.stat .n{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;color:#000;line-height:1}
-.stat .l{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.55);margin-top:4px}
+/* STATS */
+.stats{display:grid;grid-template-columns:1fr 1fr;background:#f5c800}
+.stat{padding:20px 14px;text-align:center;border-right:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
+.stat:nth-child(2){border-right:none}.stat:nth-child(3){border-bottom:none}.stat:nth-child(4){border-right:none;border-bottom:none}
+.stat .n{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:#000;line-height:1}
+.stat .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(0,0,0,.5);margin-top:3px}
 
-/* Services: alternating rows */
-.services{padding:52px 20px}
-.sec-tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#f5c800}
-.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;color:#fff;line-height:1;margin:8px 0 36px}
-.svc-row{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid #222}
+/* SERVICES */
+.services{padding:40px 20px}
+.sec-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:#f5c800}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;text-transform:uppercase;color:#fff;line-height:1;margin:6px 0 28px}
+.svc-row{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-top:1px solid #222}
 .svc-row:last-child{border-bottom:1px solid #222}
-.svc-row .icon{width:48px;height:48px;background:#1c1c1c;border:2px solid #f5c800;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.svc-row h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+.svc-icon{width:44px;height:44px;background:#1c1c1c;border:2px solid #f5c800;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.svc-row h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:4px}
 .svc-row p{font-size:13px;color:#666;line-height:1.6}
-.svc-tag{display:inline-block;background:#1c1c1c;color:#f5c800;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;margin-top:6px}
 
-/* Why us - checklist style */
-.why{background:#1a1a1a;padding:44px 20px}
-.why h2{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;text-transform:uppercase;color:#fff;margin-bottom:24px}
+/* OUR WORK */
+.work{padding:40px 0 40px 20px;background:#0d0d0d}
+.work-inner{padding-right:0}
+.work-scroll{display:flex;overflow-x:auto;gap:12px;margin-top:18px;padding-right:20px;scrollbar-width:none}
+.work-scroll::-webkit-scrollbar{display:none}
+.wc{min-width:220px;height:150px;border-radius:12px;overflow:hidden;flex-shrink:0;position:relative;border:2px solid #222}
+.wc img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+.wc-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.8));padding:10px;color:#f5c800;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* WHY */
+.why{background:#1a1a1a;padding:40px 20px}
+.why h2{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;text-transform:uppercase;color:#fff;margin-bottom:20px}
 .why h2 span{color:#f5c800}
-.check-list{display:flex;flex-direction:column;gap:14px}
-.check-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#111;border-radius:10px;border:1px solid #2a2a2a}
-.check-box{width:28px;height:28px;background:#f5c800;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#000;flex-shrink:0}
-.check-item span{font-size:14px;font-weight:600;color:#ccc}
+.chk-list{display:flex;flex-direction:column;gap:12px}
+.chk{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#111;border-radius:10px;border:1px solid #2a2a2a}
+.chk-box{width:26px;height:26px;background:#f5c800;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#000;flex-shrink:0}
+.chk span{font-size:14px;font-weight:600;color:#ccc}
 
-/* Bottom CTA */
-.cta{background:#f5c800;padding:44px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
-.cta h2{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;text-transform:uppercase;color:#000;line-height:1}
-.cta a{background:#000;color:#f5c800;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:900;font-size:16px}
+/* CTA */
+.cta{background:#f5c800;padding:40px 20px;text-align:center}
+.cta h2{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;text-transform:uppercase;color:#000;margin-bottom:10px}
+.cta a{background:#000;color:#f5c800;padding:15px 28px;border-radius:8px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block}
 
 @media(min-width:700px){
-  .hero{padding:80px 40px 0;text-align:left}
-  .hero h1{font-size:120px}
-  .hero p{margin-left:0}
-  .hero-btns{flex-direction:row;max-width:none}
-  .btn-y,.btn-d{display:inline-block;padding:15px 28px}
+  .hero{height:500px;max-height:600px}
+  .hero h1{font-size:88px}
   .stats{grid-template-columns:repeat(4,1fr)}
-  .stat{border-bottom:none}
-  .stat:nth-child(2){border-right:1px solid rgba(0,0,0,.1)}
-  .stat:nth-child(3){border-right:1px solid rgba(0,0,0,.1)}
-  .services{padding:72px 40px}
-  .why{padding:60px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .cta{padding:64px 40px}
-  .cta h2{font-size:64px}
+  .stat{border-bottom:none}.stat:nth-child(2){border-right:1px solid rgba(0,0,0,.1)}.stat:nth-child(3){border-right:1px solid rgba(0,0,0,.1)}
+  .services{padding:60px 40px}
+  .work{padding:60px 0 60px 40px}
+  .why{padding:60px 40px}
+  .cta{padding:60px 40px}
 }
 </style>
 </head>
@@ -81,54 +86,79 @@ body{font-family:'Inter',sans-serif;background:#111;color:#fff;overflow-x:hidden
 
 <div class="nav">
   <div class="logo">⚡ VOLT PRO <span>ELECTRIC</span></div>
-  <a href="tel:6015550202" class="nav-btn">Free Quote</a>
+  <a href="tel:6015550202" class="nav-btn">📞 Free Quote</a>
 </div>
 
 <div class="hero">
-  <div class="hero-pill">Jackson, MS · State Licensed</div>
-  <h1>Lights<span class="line2"> On.</span><br/><span class="line3">Always.</span></h1>
-  <p>Everything from panel upgrades to full rewires. Fast, safe, and done right the first time — with a 100% workmanship guarantee.</p>
-  <div class="hero-btns">
-    <a href="tel:6015550202" class="btn-y">⚡ Get Free Quote</a>
-    <a href="#services" class="btn-d">View Services ↓</a>
+  <!-- Electrician-specific: panel work, wiring, electrical install, breaker box -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/5733486/pexels-photo-5733486.jpeg?auto=compress&w=1200')"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&w=1200')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-pill">Jackson, MS · State Licensed</div>
+    <h1>Lights On.<span>Always.</span></h1>
+    <p class="hero-sub">Panel upgrades, rewires, EV chargers — done right the first time, every time.</p>
+    <a href="tel:6015550202" class="hero-btn">⚡ Free Quote</a>
+  </div>
+  <div class="dots">
+    <div class="dot on" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">4.9★</div><div class="l">Google Rating</div></div>
+  <div class="stat"><div class="n">4.9★</div><div class="l">Rating</div></div>
   <div class="stat"><div class="n">20yr</div><div class="l">Experience</div></div>
   <div class="stat"><div class="n">1K+</div><div class="l">Jobs Done</div></div>
   <div class="stat"><div class="n">24/7</div><div class="l">Emergency</div></div>
 </div>
 
-<div class="services" id="services">
+<div class="services">
   <div class="sec-tag">What We Do</div>
-  <div class="sec-h">Electrical<br/>Services</div>
-  <div class="svc-row"><div class="icon">⚡</div><div><h3>Panel Upgrades</h3><p>200-amp service upgrades to handle today's electrical demands.</p><span class="svc-tag">Most Popular</span></div></div>
-  <div class="svc-row"><div class="icon">🔌</div><div><h3>Whole-Home Rewire</h3><p>Eliminate fire hazards and outdated knob-and-tube or aluminum wiring.</p></div></div>
-  <div class="svc-row"><div class="icon">🚗</div><div><h3>EV Charger Install</h3><p>Level 2 home charger — any brand, any vehicle. Permitted &amp; inspected.</p></div></div>
-  <div class="svc-row"><div class="icon">🏠</div><div><h3>Lighting &amp; Outlets</h3><p>Recessed lighting, ceiling fans, GFCI outlets &amp; smart switches.</p></div></div>
-  <div class="svc-row"><div class="icon">🔋</div><div><h3>Generator Hookup</h3><p>Whole-home transfer switches and standby generator wiring.</p></div></div>
-  <div class="svc-row"><div class="icon">🚨</div><div><h3>24/7 Emergency</h3><p>No power? Sparks? Tripped breakers? We're there fast.</p><span class="svc-tag">Always Available</span></div></div>
+  <div class="sec-h">Electrical Services</div>
+  <div class="svc-row"><div class="svc-icon">⚡</div><div><h3>Panel Upgrades</h3><p>200-amp service upgrades to handle modern electrical demands safely.</p></div></div>
+  <div class="svc-row"><div class="svc-icon">🔌</div><div><h3>Whole-Home Rewire</h3><p>Eliminate fire hazards from outdated or aluminum wiring — fully permitted.</p></div></div>
+  <div class="svc-row"><div class="svc-icon">🚗</div><div><h3>EV Charger Install</h3><p>Level 2 home charger for any vehicle — inspected and warranted.</p></div></div>
+  <div class="svc-row"><div class="svc-icon">💡</div><div><h3>Lighting &amp; Outlets</h3><p>Recessed lighting, ceiling fans, GFCI outlets &amp; smart switches.</p></div></div>
+  <div class="svc-row"><div class="svc-icon">🔋</div><div><h3>Generator Hookup</h3><p>Whole-home transfer switches and standby generator wiring.</p></div></div>
+  <div class="svc-row"><div class="svc-icon">🚨</div><div><h3>24/7 Emergency</h3><p>No power? Sparks? Tripped breakers? We respond fast.</p></div></div>
+</div>
+
+<div class="work">
+  <div class="sec-tag" style="padding-right:20px">Our Work</div>
+  <div class="sec-h" style="padding-right:20px">Recent Jobs</div>
+  <div class="work-scroll">
+    <div class="wc"><img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&w=500" alt="Panel work"/><div class="wc-lbl">Panel Upgrade</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&w=500" alt="Electrical install"/><div class="wc-lbl">Electrical Install</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/5733486/pexels-photo-5733486.jpeg?auto=compress&w=500" alt="Wiring work"/><div class="wc-lbl">Rewire</div></div>
+    <div class="wc"><img src="https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&w=500" alt="EV charger"/><div class="wc-lbl">EV Charger</div></div>
+  </div>
 </div>
 
 <div class="why">
-  <div>
-    <h2>Why Choose <span>Volt Pro?</span></h2>
-  </div>
-  <div class="check-list">
-    <div class="check-item"><div class="check-box">✓</div><span>Same-day appointments available</span></div>
-    <div class="check-item"><div class="check-box">✓</div><span>State licensed &amp; fully insured</span></div>
-    <div class="check-item"><div class="check-box">✓</div><span>Upfront pricing — no surprise bills</span></div>
-    <div class="check-item"><div class="check-box">✓</div><span>100% satisfaction guarantee</span></div>
-    <div class="check-item"><div class="check-box">✓</div><span>Locally owned — Jackson since 2004</span></div>
+  <h2>Why Choose <span>Volt Pro?</span></h2>
+  <div class="chk-list">
+    <div class="chk"><div class="chk-box">✓</div><span>Same-day appointments available</span></div>
+    <div class="chk"><div class="chk-box">✓</div><span>State licensed &amp; fully insured</span></div>
+    <div class="chk"><div class="chk-box">✓</div><span>Upfront pricing — no surprise bills</span></div>
+    <div class="chk"><div class="chk-box">✓</div><span>100% satisfaction guarantee</span></div>
+    <div class="chk"><div class="chk-box">✓</div><span>Jackson-owned since 2004</span></div>
   </div>
 </div>
 
 <div class="cta">
-  <h2>Ready to Get<br/>Started?</h2>
+  <h2>Ready to Get Started?</h2>
   <a href="tel:6015550202">📞 (601) 555-0202</a>
 </div>
 
+<script>
+var slides=document.querySelectorAll('.slide'),cur=0,dots=document.querySelectorAll('.dot');
+function goSlide(n){slides[cur].classList.remove('active');dots[cur].classList.remove('on');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('on')}
+setInterval(function(){goSlide((cur+1)%slides.length)},4000);
+</script>
 </body>
 </html>
